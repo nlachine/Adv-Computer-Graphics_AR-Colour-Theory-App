@@ -10,7 +10,14 @@ public class ColourSlider : MonoBehaviour
     private Renderer _Renderer;
     private Material _Material;
     public bool isReset = false;
-    
+
+
+    public GameObject matchSphere;
+    public RandomColour s_randomColour;
+    private Material matchMaterial;
+    float tolerance = 0.05f;
+
+
     public void sliderUpdate(){
         if (!isReset)
             return;
@@ -20,8 +27,17 @@ public class ColourSlider : MonoBehaviour
         outputColour.b = slider_blue.value;
         _Material.color = outputColour;
 
-        Debug.Log("R:"+ outputColour.r + " G:" + outputColour.g + " B:"+ outputColour.b);
+        //Debug.Log("R:"+ outputColour.r + " G:" + outputColour.g + " B:"+ outputColour.b);
 
+        float r_difference = matchMaterial.color.r - outputColour.r;
+        float g_difference = matchMaterial.color.g - outputColour.g;
+        float b_difference = matchMaterial.color.b - outputColour.b;
+
+        if ( r_difference <= tolerance && r_difference >= -tolerance && g_difference <= tolerance && g_difference >= -tolerance && b_difference <= tolerance && b_difference >= -tolerance)
+        {
+            s_randomColour.Randomize();
+            Debug.Log("Matched");
+        }
     }
 
     // Start is called before the first frame update
@@ -29,12 +45,15 @@ public class ColourSlider : MonoBehaviour
     {
         _Renderer = GetComponent<MeshRenderer>();
         _Material = _Renderer.material;
-        outputColour = _Material.color;
+        outputColour = new Vector4(Random.Range(0.0f, 1.0f),Random.Range(0.0f, 1.0f),Random.Range(0.0f, 1.0f), 1);
+        _Material.color = outputColour;
         slider_red.value = outputColour.r;
         slider_green.value = outputColour.g;
         slider_blue.value = outputColour.b;
         isReset = true;
-        Debug.Log("MR:"+ _Material.color.r + " MG:" + _Material.color.g + " MB:"+ _Material.color.b);
+
+        matchMaterial = matchSphere.GetComponent<MeshRenderer>().material;
+        s_randomColour = matchSphere.GetComponent<RandomColour>();
     }
 
     // Update is called once per frame
