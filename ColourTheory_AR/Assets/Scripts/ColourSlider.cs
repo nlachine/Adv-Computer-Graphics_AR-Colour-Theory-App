@@ -15,7 +15,7 @@ public class ColourSlider : MonoBehaviour
     public GameObject matchSphere;
     public RandomColour s_randomColour;
     private Material matchMaterial;
-    float tolerance = 0.05f;
+    float tolerance = 0.10f;
 
 
     public void sliderUpdate(){
