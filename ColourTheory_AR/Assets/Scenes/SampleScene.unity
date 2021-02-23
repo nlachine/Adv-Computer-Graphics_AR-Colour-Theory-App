@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 63317517}
   - component: {fileID: 63317516}
   m_Layer: 0
-  m_Name: Green_Text
+  m_Name: Yellow_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -191,7 +191,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Green
+  m_Text: Yellow
 --- !u!222 &63317517
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -227,13 +227,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200268577}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0218, y: 0.03, z: 0}
+  m_LocalRotation: {x: -0, y: -0.683464, z: -0, w: 0.7299843}
+  m_LocalPosition: {x: -0.0003589201, y: 0.029999994, z: -0.022899717}
   m_LocalScale: {x: 0.041015614, y: 0.041015614, z: 0.041015614}
   m_Children: []
   m_Father: {fileID: 999873644}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -86.23, z: 0}
 --- !u!135 &200268579
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider_red: {fileID: 1771782104}
-  slider_green: {fileID: 2066519715}
+  slider_yellow: {fileID: 2066519715}
   slider_blue: {fileID: 1111588267}
   isReset: 0
   matchSphere: {fileID: 1997733647}
@@ -2033,13 +2033,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997733647}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0241, y: 0.03, z: 0}
+  m_LocalRotation: {x: -0, y: -0.683464, z: -0, w: 0.7299843}
+  m_LocalPosition: {x: 0.00265896, y: 0.029999994, z: 0.022899477}
   m_LocalScale: {x: 0.041015614, y: 0.041015614, z: 0.041015614}
   m_Children: []
   m_Father: {fileID: 999873644}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -86.23, z: 0}
 --- !u!114 &1997733652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2089,7 +2089,7 @@ GameObject:
   - component: {fileID: 2066519714}
   - component: {fileID: 2066519715}
   m_Layer: 0
-  m_Name: Green_Slider
+  m_Name: Yellow_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2137,11 +2137,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 1, b: 0, a: 1}
-    m_HighlightedColor: {r: 0, g: 1, b: 0, a: 1}
-    m_PressedColor: {r: 0, g: 0.78431374, b: 0, a: 1}
-    m_SelectedColor: {r: 0, g: 1, b: 0, a: 1}
-    m_DisabledColor: {r: 0, g: 1, b: 0, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 0, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 0, a: 1}
+    m_PressedColor: {r: 0.8773585, g: 0.8773585, b: 0, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 0, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 0, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2429,7 +2429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.39215687, g: 1, b: 0.39215687, a: 1}
+  m_Color: {r: 1, g: 1, b: 0.39215687, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
