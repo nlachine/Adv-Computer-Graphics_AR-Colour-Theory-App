@@ -9,8 +9,8 @@ public class ColourSlider : MonoBehaviour
     public Slider slider_red, slider_yellow, slider_blue;
     private Renderer _Renderer;
     private Material as_Material;
-    private Color alterColour_RGB;
-    private Color alterColour_RYB;
+    private Color alterSphere_RGB;
+    private Color alterSphere_RYB;
 
     private bool isReset = false;
 
@@ -31,22 +31,22 @@ public class ColourSlider : MonoBehaviour
             return;
 
         //Save RYB values from slider
-        alterColour_RYB.r = slider_red.value;
-        alterColour_RYB.g = slider_yellow.value; //yellow
-        alterColour_RYB.b = slider_blue.value;
+        alterSphere_RYB.r = slider_red.value;
+        alterSphere_RYB.g = slider_yellow.value; //yellow
+        alterSphere_RYB.b = slider_blue.value;
 
         //Convert slider to RGB for display
-        alterColour_RGB = s_handleColour.ConvertToRGB(alterColour_RYB.r, alterColour_RYB.g, alterColour_RYB.b);
-        as_Material.color = alterColour_RGB;
+        alterSphere_RGB = s_handleColour.ConvertToRGB(alterSphere_RYB.r, alterSphere_RYB.g, alterSphere_RYB.b);
+        as_Material.color = alterSphere_RGB;
 
         //Log RGB values of each sphere
-        Debug.Log("AS: " + alterColour_RYB);
+        Debug.Log("AS: " + alterSphere_RYB);
         Debug.Log("MS: " + matchSphere_RYB);
 
         //calculate the difference between each value of match sphere and alter sphere
-        float r_difference = matchSphere_RYB.r - alterColour_RYB.r;
-        float y_difference = matchSphere_RYB.g - alterColour_RYB.g; //yellow
-        float b_difference = matchSphere_RYB.b - alterColour_RYB.b;
+        float r_difference = matchSphere_RYB.r - alterSphere_RYB.r;
+        float y_difference = matchSphere_RYB.g - alterSphere_RYB.g; //yellow
+        float b_difference = matchSphere_RYB.b - alterSphere_RYB.b;
         
         //check if all are within tolerance. If true, rerandomize;
         if (r_difference <= tolerance && r_difference >= -tolerance && y_difference <= tolerance && y_difference >= -tolerance && b_difference <= tolerance && b_difference >= -tolerance)
@@ -82,14 +82,14 @@ public class ColourSlider : MonoBehaviour
         ms_Material.color = matchSphere_RGB;
 
         //Randomize the alter spheres colour (RYB) & conver to display (RGB)
-        alterColour_RYB = s_handleColour.Randomize();
-        alterColour_RGB = s_handleColour.ConvertToRGB(alterColour_RYB.r, alterColour_RYB.g, alterColour_RYB.b);
-        as_Material.color = alterColour_RGB;
+        alterSphere_RYB = s_handleColour.Randomize();
+        alterSphere_RGB = s_handleColour.ConvertToRGB(alterSphere_RYB.r, alterSphere_RYB.g, alterSphere_RYB.b);
+        as_Material.color = alterSphere_RGB;
         
         //Match sliders to be correct to the alter sphere
-        slider_red.value = alterColour_RYB.r;
-        slider_yellow.value = alterColour_RYB.g; //yellow
-        slider_blue.value = alterColour_RYB.b;
+        slider_red.value = alterSphere_RYB.r;
+        slider_yellow.value = alterSphere_RYB.g; //yellow
+        slider_blue.value = alterSphere_RYB.b;
 
         isReset = true;
     }

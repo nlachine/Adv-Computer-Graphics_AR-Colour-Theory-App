@@ -35,7 +35,8 @@ public class HandleColour : MonoBehaviour
 
         //Debug.Log("R:"+ outputColour.r + " G:" + outputColour.g + " B:"+ outputColour.b);
         for (int i = 0; i < 3; i++)
-        {
+        {   
+            //Algorithm created from information here: http://vis.computer.org/vis2004/DVD/infovis/papers/gossett.pdf
             float tempColour = whiteRYB[i] * (1 - r) * (1 - b) * (1 - y)
                                 + redRYB[i] * r * (1 - b) * (1 - y)
                                 + blueRYB[i] * (1 - r) * b * (1 - y)
