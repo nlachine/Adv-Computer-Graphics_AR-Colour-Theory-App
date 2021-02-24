@@ -6,7 +6,7 @@ public class HandleColour : MonoBehaviour
 {
 
     //RYB-> RGB Colour Constants
-    float[] whiteRYB = { 1.0f, 1.0f, 1.0f }; // 000 RYB
+    float[] whiteRYB = { 1.0f, 1.0f, 1.0f }; // 0   0   0 RYB
     float[] redRYB = { 1.0f, 0.0f, 0.0f }; // 100 RYB
     float[] yellowRYB = { 1.0f, 1.0f, 0.0f }; // 010 RYB
     float[] blueRYB = { 0.163f, 0.373f, 0.6f }; // 001 RYB
