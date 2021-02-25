@@ -12,6 +12,10 @@ public class ColourSlider : MonoBehaviour
     private Color alterSphere_RGB;
     private Color alterSphere_RYB;
 
+    private bool rCorrect= false;
+    private bool yCorrect= false;
+    private bool bCorrect= false;
+
     private bool isReset = false;
 
     //Match Sphere Properties
@@ -23,6 +27,23 @@ public class ColourSlider : MonoBehaviour
 
     //How close do you have to be for each colour + or - tolerance
     float tolerance = 0.10f;
+
+
+    public void resetCheck(){
+        //reset sliders and booleans
+        rCorrect = false;
+        yCorrect = false;
+        bCorrect = false;
+        slider_red.transform.parent.Find("Good").gameObject.SetActive(false);
+        slider_red.transform.parent.Find("Close").gameObject.SetActive(false);
+        slider_red.transform.parent.Find("Wrong").gameObject.SetActive(false);
+        slider_yellow.transform.parent.Find("Good").gameObject.SetActive(false);
+        slider_yellow.transform.parent.Find("Close").gameObject.SetActive(false);
+        slider_yellow.transform.parent.Find("Wrong").gameObject.SetActive(false);
+        slider_blue.transform.parent.Find("Good").gameObject.SetActive(false);
+        slider_blue.transform.parent.Find("Close").gameObject.SetActive(false);
+        slider_blue.transform.parent.Find("Wrong").gameObject.SetActive(false);
+    }
 
     public void sliderUpdate()
     {
@@ -43,6 +64,8 @@ public class ColourSlider : MonoBehaviour
     }
 
     public void checkMatch(){
+        resetCheck();
+
          //Log RGB values of each sphere
         Debug.Log("AS: " + alterSphere_RYB);
         Debug.Log("MS: " + matchSphere_RYB);
@@ -52,17 +75,54 @@ public class ColourSlider : MonoBehaviour
         float y_difference = matchSphere_RYB.g - alterSphere_RYB.g; //yellow
         float b_difference = matchSphere_RYB.b - alterSphere_RYB.b;
         
+        //Show Red Indicator
+        if (r_difference <= tolerance && r_difference >= -tolerance){
+            rCorrect = true;
+            slider_red.transform.parent.Find("Good").gameObject.SetActive(true);
+        } else if( r_difference <= tolerance*2 && r_difference >= -tolerance*2){
+            rCorrect = false;
+            slider_red.transform.parent.Find("Close").gameObject.SetActive(true);
+        } else {
+            rCorrect = false;
+            slider_red.transform.parent.Find("Wrong").gameObject.SetActive(true);
+        }
+
+        //Show Yellow Indicator
+        if (y_difference <= tolerance && y_difference >= -tolerance){
+            yCorrect = true;
+            slider_yellow.transform.parent.Find("Good").gameObject.SetActive(true);
+        } else if( y_difference <= tolerance*2 && y_difference >= -tolerance*2){
+            yCorrect = false;
+            slider_yellow.transform.parent.Find("Close").gameObject.SetActive(true);
+        } else {
+            yCorrect = false;
+            slider_yellow.transform.parent.Find("Wrong").gameObject.SetActive(true);
+        }
+
+        //Show Blue Indicator
+        if (b_difference <= tolerance && b_difference >= -tolerance){
+            bCorrect = true;
+            slider_blue.transform.parent.Find("Good").gameObject.SetActive(true);
+        } else if( b_difference <= tolerance*2 && b_difference >= -tolerance*2){
+            bCorrect = false;
+            slider_blue.transform.parent.Find("Close").gameObject.SetActive(true);
+        } else {
+            bCorrect = false;
+            slider_blue.transform.parent.Find("Wrong").gameObject.SetActive(true);
+        }
+
         //check if all are within tolerance. If true, rerandomize;
-        if (r_difference <= tolerance && r_difference >= -tolerance && y_difference <= tolerance && y_difference >= -tolerance && b_difference <= tolerance && b_difference >= -tolerance)
+        if (rCorrect && yCorrect && bCorrect)
         {
             Debug.Log("Matched");
             //New colour.
             matchSphere_RYB = s_handleColour.Randomize();
             matchSphere_RGB = s_handleColour.ConvertToRGB(matchSphere_RYB.r, matchSphere_RYB.g, matchSphere_RYB.b);
             ms_Material.color = matchSphere_RGB;
+
+            resetCheck();
         }
     }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -94,6 +154,8 @@ public class ColourSlider : MonoBehaviour
         slider_red.value = alterSphere_RYB.r;
         slider_yellow.value = alterSphere_RYB.g; //yellow
         slider_blue.value = alterSphere_RYB.b;
+
+        resetCheck();
 
         isReset = true;
     }
