@@ -39,7 +39,11 @@ public class ColourSlider : MonoBehaviour
         alterSphere_RGB = s_handleColour.ConvertToRGB(alterSphere_RYB.r, alterSphere_RYB.g, alterSphere_RYB.b);
         as_Material.color = alterSphere_RGB;
 
-        //Log RGB values of each sphere
+        //checkMatch();
+    }
+
+    public void checkMatch(){
+         //Log RGB values of each sphere
         Debug.Log("AS: " + alterSphere_RYB);
         Debug.Log("MS: " + matchSphere_RYB);
 
