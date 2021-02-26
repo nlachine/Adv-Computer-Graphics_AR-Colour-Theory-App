@@ -22,14 +22,14 @@ public class ResultSphere : MonoBehaviour
 
     private HandleColour _handleColour;
 
-    float tolerance = 0.1f;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        AlterColor = AlterMat.color;
-        ComplementaryColor = ComplementaryMat.color;
-        ResultColor = ResultMat.color;
+        //AlterColor = AlterMat.color;
+        //ComplementaryColor = ComplementaryMat.color;
+        //ResultColor = ResultMat.color;
     }
 
     void checkResult()
@@ -40,9 +40,10 @@ public class ResultSphere : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ResultColor.r = (ComplementaryColor.r - 1.0f) + AlterColor.r;
-        ResultColor.g = (ComplementaryColor.g - 1.0f) + AlterColor.g;
-        ResultColor.b = (ComplementaryColor.b - 1.0f) + AlterColor.b;
-        ResultMat.color = ResultColor;
+       // ResultColor.r = (1.0f - AlterColor.r) + ComplementaryColor.r;
+       // ResultColor.g = (1.0f - AlterColor.g) + ComplementaryColor.g;
+       // ResultColor.b = (1.0f - AlterColor.b) + ComplementaryColor.b;
+       // ResultMat.color = ResultColor;
+        //Debug.Log("its goin");
     }
 }
