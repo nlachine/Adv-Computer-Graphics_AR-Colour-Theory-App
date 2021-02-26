@@ -27,7 +27,6 @@ public class AlterSphere : MonoBehaviour
     private Color ResultColorRGB;
 
     private bool isReset = false;
-    private bool correct = false;
 
     float tolerance = 0.05f;
 
@@ -85,7 +84,6 @@ public class AlterSphere : MonoBehaviour
             AlterColorRYB.g <= (1 - ComplementaryColorRYB.g) + tolerance && AlterColorRYB.g >= (1 - ComplementaryColorRYB.g) - tolerance ||
             AlterColorRYB.b <= (1 - ComplementaryColorRYB.b) + tolerance && AlterColorRYB.b >= (1 - ComplementaryColorRYB.b) - tolerance)
         {
-            Debug.Log("it do it");
             setUp();// if correct run set up again and repeat the game
         }
     }
