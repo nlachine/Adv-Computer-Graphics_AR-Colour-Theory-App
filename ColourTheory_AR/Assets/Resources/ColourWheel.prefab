@@ -114,6 +114,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3_Orange
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: OObj
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
 --- !u!4 &542613179898975898 stripped
@@ -193,6 +198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 2_Red-Orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: ROObj
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
@@ -274,6 +284,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 9_Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: BObj
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
 --- !u!4 &1122327081240288039 stripped
@@ -353,6 +368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 12_Red-Purple
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: RPObj
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
@@ -434,6 +454,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5_Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: YObj
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
 --- !u!4 &2651509365352339982 stripped
@@ -513,6 +538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 8_Blue-Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: BGObj
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
@@ -594,6 +624,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 7_Green
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: GObj
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
 --- !u!4 &3667035406425509966 stripped
@@ -673,6 +708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 10_Blue-Purple
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: BPObj
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
@@ -754,6 +794,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 6_Yellow-Green
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: YGObj
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
 --- !u!4 &6909805965049220073 stripped
@@ -833,6 +878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 4_Yellow-Orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: YOObj
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
@@ -914,6 +964,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1_Red
       objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: RObj
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
 --- !u!4 &8115487740661308140 stripped
@@ -993,6 +1048,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 11_Purple
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: fc0ba9e4d3868d74e9ada4261e27ccb0,
+        type: 3}
+      propertyPath: m_Name
+      value: PObj
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}

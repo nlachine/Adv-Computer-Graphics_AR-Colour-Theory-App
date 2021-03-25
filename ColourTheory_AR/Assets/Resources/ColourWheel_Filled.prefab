@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 461084972455082127, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: RObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139904961823149823, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: PObj
+      objectReference: {fileID: 0}
     - target: {fileID: 1586707979181160988, guid: ef47c46951434734f8caea1a4683bb23,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -32,6 +42,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8a12afe2c529a5e40a76e10c33a6a73c, type: 2}
+    - target: {fileID: 2964094947846875530, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: YGObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158474622848484875, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: YOObj
+      objectReference: {fileID: 0}
     - target: {fileID: 3275740451378681436, guid: ef47c46951434734f8caea1a4683bb23,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -46,11 +66,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 84767e468d2e9364d93307ae818e28fa, type: 2}
+      objectReference: {fileID: 2100000, guid: 05b98b75c9656424c88ffae83a4e70f1, type: 2}
+    - target: {fileID: 4910601487930290733, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: GObj
+      objectReference: {fileID: 0}
     - target: {fileID: 5175309519542523496, guid: ef47c46951434734f8caea1a4683bb23,
         type: 3}
       propertyPath: m_Name
       value: ColourWheel_Filled
+      objectReference: {fileID: 0}
+    - target: {fileID: 5346193417868335289, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: BPObj
       objectReference: {fileID: 0}
     - target: {fileID: 5517364656762996974, guid: ef47c46951434734f8caea1a4683bb23,
         type: 3}
@@ -62,6 +92,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: aaf6e2f51b6aabe4cbd325a13dac6726, type: 2}
+    - target: {fileID: 5911562701915666541, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: YObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685401244556648500, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: BGObj
+      objectReference: {fileID: 0}
     - target: {fileID: 6999333061077481066, guid: ef47c46951434734f8caea1a4683bb23,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -72,6 +112,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 44be189a69e40b74d8942e6686203594, type: 2}
+    - target: {fileID: 8160984883343258873, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: OObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189224835858574981, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: ROObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742988553596959044, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: BOBJ
+      objectReference: {fileID: 0}
     - target: {fileID: 8762095813747308503, guid: ef47c46951434734f8caea1a4683bb23,
         type: 3}
       propertyPath: m_RootOrder
@@ -126,6 +181,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9134177858299193393, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: RPObj
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef47c46951434734f8caea1a4683bb23, type: 3}
