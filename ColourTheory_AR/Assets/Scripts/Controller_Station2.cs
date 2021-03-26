@@ -7,7 +7,7 @@ public class Controller_Station2 : MonoBehaviour
 
     //---- Utility Scripts ----//
     [Header("Utility Scripts")]
-    MaterialAnimations materialAnimator;
+    MaterialAnimations _materialAnimator;
 
 
     //---- Colour Flashing Controls ----//
@@ -82,7 +82,7 @@ public class Controller_Station2 : MonoBehaviour
     void Start()
     {
         //---- Get Utility Scripts ----//
-        materialAnimator = this.GetComponent<MaterialAnimations>();
+        _materialAnimator = this.GetComponent<MaterialAnimations>();
 
         //---- Set Default Parameters ----//
         flashAmplitude = 0.5f;
@@ -361,60 +361,58 @@ public class Controller_Station2 : MonoBehaviour
         CompleteUI.gameObject.SetActive(true);
     }
 
+    float getUniversalValue()
+    {
+        return universalSlider.value;
+    }
+    float getIntensityValue()
+    {
+        return intensitySlider.value;
+    }
+
     void SaturationChanged()
     {
-        float universalValue = universalSlider.value;
-        Debug.Log(colourWheel.transform.childCount);
         for(int i = 0; i < colourWheel.transform.childCount; i++)
         {
             Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
             float H, S, V;
             Color.RGBToHSV(colourWheelMats[i].color, out H, out S, out V);
-            tempRenderer.material.color = Color.HSVToRGB(H, universalValue, V);
+            tempRenderer.material.color = Color.HSVToRGB(H, getUniversalValue(), V);
         }
     }
     void ValueChanged()
     {
-        float universalValue = universalSlider.value;
-        Debug.Log(colourWheel.transform.childCount);
         for (int i = 0; i < colourWheel.transform.childCount; i++)
         {
             Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
             float H, S, V;
             Color.RGBToHSV(colourWheelMats[i].color, out H, out S, out V);
-            tempRenderer.material.color = Color.HSVToRGB(H, S, universalValue);
+            tempRenderer.material.color = Color.HSVToRGB(H, S, getUniversalValue());
         }
     }
     void TintChanged()
     {
-        float universalValue = universalSlider.value;
-        Debug.Log(colourWheel.transform.childCount);
         for (int i = 0; i < colourWheel.transform.childCount; i++)
         {
             Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
-            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, Color.white, universalValue); ;
+            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, Color.white, getUniversalValue()); 
         }
     }
     void ToneChanged()
     {
-        float intensityValue = intensitySlider.value;
-        float universalValue = universalSlider.value;
-        Debug.Log(colourWheel.transform.childCount);
         for (int i = 0; i < colourWheel.transform.childCount; i++)
         {
-            Color grey = new Color(intensityValue, intensityValue, intensityValue);
+            Color grey = new Color(getIntensityValue(), getIntensityValue(), getIntensityValue());
             Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
-            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, grey, universalValue); ;
+            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, grey, getUniversalValue());
         }
     }
     void ShadeChanged()
     {
-        float universalValue = universalSlider.value;
-        Debug.Log(colourWheel.transform.childCount);
         for (int i = 0; i < colourWheel.transform.childCount; i++)
         {
             Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
-            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, Color.black, universalValue); ;
+            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, Color.black, getUniversalValue());
         }
     }
 
@@ -445,6 +443,6 @@ public class Controller_Station2 : MonoBehaviour
     void Update()
     {
         //---- Example on flashing colour. ----//
-        //materialAnimator.FlashingAlpha(redRenderer, flashAmplitude, flashSpeed, flashOffset);
+        //_materialAnimator.FlashingAlpha(redRenderer, flashAmplitude, flashSpeed, flashOffset);
     }
 }
