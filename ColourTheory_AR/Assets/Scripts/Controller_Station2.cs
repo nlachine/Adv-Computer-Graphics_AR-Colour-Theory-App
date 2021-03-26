@@ -219,7 +219,7 @@ public class Controller_Station2 : MonoBehaviour
         nextButton.gameObject.SetActive(true);
         headerText.text = "TINT";
 
-        intensitySlider.gameObject.SetActive(true);
+        intensitySlider.gameObject.SetActive(false);
         universalSlider.gameObject.SetActive(true);
 
         hueDescription.gameObject.SetActive(false);
@@ -236,7 +236,7 @@ public class Controller_Station2 : MonoBehaviour
         nextButton.gameObject.SetActive(true);
         headerText.text = "TONE";
 
-        intensitySlider.gameObject.SetActive(false);
+        intensitySlider.gameObject.SetActive(true);
         universalSlider.gameObject.SetActive(true);
 
         hueDescription.gameObject.SetActive(false);
@@ -291,6 +291,16 @@ public class Controller_Station2 : MonoBehaviour
     }
     void TintChanged()
     {
+        float universalValue = universalSlider.value;
+        Debug.Log(colourWheel.transform.childCount);
+        for (int i = 0; i < colourWheel.transform.childCount; i++)
+        {
+            Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
+            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, Color.white, universalValue); ;
+        }
+    }
+    void ToneChanged()
+    {
         float intensityValue = intensitySlider.value;
         float universalValue = universalSlider.value;
         Debug.Log(colourWheel.transform.childCount);
@@ -301,11 +311,15 @@ public class Controller_Station2 : MonoBehaviour
             tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, grey, universalValue); ;
         }
     }
-    void ToneChanged()
-    {
-    }
     void ShadeChanged()
     {
+        float universalValue = universalSlider.value;
+        Debug.Log(colourWheel.transform.childCount);
+        for (int i = 0; i < colourWheel.transform.childCount; i++)
+        {
+            Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
+            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, Color.black, universalValue); ;
+        }
     }
 
     public void OnSliderChange()
