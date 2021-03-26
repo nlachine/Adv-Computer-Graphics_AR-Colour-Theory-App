@@ -65,15 +65,4 @@ public class HandleColour : MonoBehaviour
         //GetComponent<Renderer>().material.color = ConvertToRGB(r_rand, y_rand, b_rand);
         return new Color(r_rand,y_rand,b_rand);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        Randomize();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
