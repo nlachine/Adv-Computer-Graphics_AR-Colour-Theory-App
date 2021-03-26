@@ -137,18 +137,7 @@ public class Controller_Station2 : MonoBehaviour
         redPurpleRenderer = redPurplePiece.GetComponent<MeshRenderer>();
 
         //---- Set Materials on Pieces ----//
-        redRenderer.material = colourWheelMats[0];
-        redOrangeRenderer.material = colourWheelMats[1];
-        orangeRenderer.material = colourWheelMats[2];
-        yellowOrangeRenderer.material = colourWheelMats[3];
-        yellowRenderer.material = colourWheelMats[4];
-        yellowGreenRenderer.material = colourWheelMats[5];
-        greenRenderer.material = colourWheelMats[6];
-        blueGreenRenderer.material = colourWheelMats[7];
-        blueRenderer.material = colourWheelMats[8];
-        bluePurpleRenderer.material = colourWheelMats[9];
-        purpleRenderer.material = colourWheelMats[10];
-        redPurpleRenderer.material = colourWheelMats[11];
+        ResetDefaultColours();
 
     }
 
