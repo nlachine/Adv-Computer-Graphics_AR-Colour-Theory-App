@@ -20,35 +20,11 @@ public class Controller_Station2 : MonoBehaviour
     public int flashSpeed = 5;
 
     //---- Declare Colour Wheel Game Objects and Mesh Renderers ----//
+    [Header("Colour Wheel")]
     public GameObject colourWheel;
-    [Header("CW Pieces")]
-    GameObject redPiece;
-    Renderer redRenderer;
-    GameObject redOrangePiece;
-    Renderer redOrangeRenderer;
-    GameObject orangePiece;
-    Renderer orangeRenderer;
-    GameObject yellowOrangePiece;
-    Renderer yellowOrangeRenderer;
-    GameObject yellowPiece;
-    Renderer yellowRenderer;
-    GameObject yellowGreenPiece;
-    Renderer yellowGreenRenderer;
-    GameObject greenPiece;
-    Renderer greenRenderer;
-    GameObject blueGreenPiece;
-    Renderer blueGreenRenderer;
-    GameObject bluePiece;
-    Renderer blueRenderer;
-    GameObject bluePurplePiece;
-    Renderer bluePurpleRenderer;
-    GameObject purplePiece;
-    Renderer purpleRenderer;
-    GameObject redPurplePiece;
-    Renderer redPurpleRenderer;
-
+    public List<GameObject> colourWheelPieces = new List<GameObject>(12);
+    public List<Renderer> colourWheelRenderers = new List<Renderer>(12);
     //---- Declare Colour Wheel Materials (Drag In 12) ----//
-    [Header("CW Materials")]
     public List<Material> colourWheelMats = new List<Material>(12);
 
 
@@ -85,56 +61,11 @@ public class Controller_Station2 : MonoBehaviour
         _materialAnimator = this.GetComponent<MaterialAnimations>();
 
         //---- Set Default Parameters ----//
-        flashAmplitude = 0.5f;
-        flashOffset = 1f;
-        flashSpeed = 5;
-
-        StartUI.gameObject.SetActive(true);
-
-        startButton.gameObject.SetActive(true);
-        nextButton.gameObject.SetActive(false);
-        prevButton.gameObject.SetActive(false);
-
-        intensitySlider.gameObject.SetActive(false);
-        universalSlider.gameObject.SetActive(false);
-
-        headerTextBackground.SetActive(false);
-        textBackground.gameObject.SetActive(false);
-        hueDescription.gameObject.SetActive(false);
-        saturationDescription.gameObject.SetActive(false);
-        valueDescription.gameObject.SetActive(false);
-        tintDescription.gameObject.SetActive(false);
-        toneDescription.gameObject.SetActive(false);
-        shadeDescription.gameObject.SetActive(false);
-
-        CompleteUI.gameObject.SetActive(false);
+        setDefaults();
 
         //---- Get Colour Wheel Game Objects and Mesh Renderers ----//
-        redPiece = colourWheel.gameObject.transform.Find("1_Red").GetChild(0).gameObject;
-        redOrangePiece = colourWheel.gameObject.transform.Find("2_Red-Orange").GetChild(0).gameObject;
-        orangePiece = colourWheel.gameObject.transform.Find("3_Orange").GetChild(0).gameObject;
-        yellowOrangePiece = colourWheel.gameObject.transform.Find("4_Yellow-Orange").GetChild(0).gameObject;
-        yellowPiece = colourWheel.gameObject.transform.Find("5_Yellow").GetChild(0).gameObject;
-        yellowGreenPiece = colourWheel.gameObject.transform.Find("6_Yellow-Green").GetChild(0).gameObject;
-        greenPiece = colourWheel.gameObject.transform.Find("7_Green").GetChild(0).gameObject;
-        blueGreenPiece = colourWheel.gameObject.transform.Find("8_Blue-Green").GetChild(0).gameObject;
-        bluePiece = colourWheel.gameObject.transform.Find("9_Blue").GetChild(0).gameObject;
-        bluePurplePiece = colourWheel.gameObject.transform.Find("10_Blue-Purple").GetChild(0).gameObject;
-        purplePiece = colourWheel.gameObject.transform.Find("11_Purple").GetChild(0).gameObject;
-        redPurplePiece = colourWheel.gameObject.transform.Find("12_Red-Purple").GetChild(0).gameObject;
-
-        redRenderer = redPiece.GetComponent<MeshRenderer>();
-        redOrangeRenderer = redOrangePiece.GetComponent<MeshRenderer>();
-        orangeRenderer = orangePiece.GetComponent<MeshRenderer>();
-        yellowOrangeRenderer = yellowOrangePiece.GetComponent<MeshRenderer>();
-        yellowRenderer = yellowPiece.GetComponent<MeshRenderer>();
-        yellowGreenRenderer = yellowGreenPiece.GetComponent<MeshRenderer>();
-        greenRenderer = greenPiece.GetComponent<MeshRenderer>();
-        blueGreenRenderer = blueGreenPiece.GetComponent<MeshRenderer>();
-        blueRenderer = bluePiece.GetComponent<MeshRenderer>();
-        bluePurpleRenderer = bluePurplePiece.GetComponent<MeshRenderer>();
-        purpleRenderer = purplePiece.GetComponent<MeshRenderer>();
-        redPurpleRenderer = redPurplePiece.GetComponent<MeshRenderer>();
+        setWheelPieces();
+        setWheelRenderers();
 
         //---- Set Materials on Pieces ----//
         ResetDefaultColours();
@@ -182,22 +113,83 @@ public class Controller_Station2 : MonoBehaviour
         }
     }
 
+    void setDefaults()
+    {
+        currentStep = 1;
+        flashAmplitude = 0.5f;
+        flashOffset = 1f;
+        flashSpeed = 5;
+
+        StartUI.gameObject.SetActive(true);
+
+        startButton.gameObject.SetActive(true);
+        nextButton.gameObject.SetActive(false);
+        prevButton.gameObject.SetActive(false);
+
+        intensitySlider.gameObject.SetActive(false);
+        universalSlider.gameObject.SetActive(false);
+
+        headerTextBackground.SetActive(false);
+        textBackground.gameObject.SetActive(false);
+        hueDescription.gameObject.SetActive(false);
+        saturationDescription.gameObject.SetActive(false);
+        valueDescription.gameObject.SetActive(false);
+        tintDescription.gameObject.SetActive(false);
+        toneDescription.gameObject.SetActive(false);
+        shadeDescription.gameObject.SetActive(false);
+
+        CompleteUI.gameObject.SetActive(false);
+    }
+
+    void setWheelPieces()
+    {
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("0_Red").GetChild(0).gameObject);
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("1_Red-Orange").GetChild(0).gameObject);
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("2_Orange").GetChild(0).gameObject);
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("3_Yellow-Orange").GetChild(0).gameObject);
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("4_Yellow").GetChild(0).gameObject);
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("5_Yellow-Green").GetChild(0).gameObject);
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("6_Green").GetChild(0).gameObject);
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("7_Blue-Green").GetChild(0).gameObject);
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("8_Blue").GetChild(0).gameObject);
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("9_Blue-Purple").GetChild(0).gameObject);
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("10_Purple").GetChild(0).gameObject);
+        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("11_Red-Purple").GetChild(0).gameObject);
+    }
+
+    void setWheelRenderers()
+    {      
+        colourWheelRenderers.Add(colourWheelPieces[0].GetComponent<MeshRenderer>());
+        colourWheelRenderers.Add(colourWheelPieces[1].GetComponent<MeshRenderer>());
+        colourWheelRenderers.Add(colourWheelPieces[2].GetComponent<MeshRenderer>());
+        colourWheelRenderers.Add(colourWheelPieces[3].GetComponent<MeshRenderer>());
+        colourWheelRenderers.Add(colourWheelPieces[4].GetComponent<MeshRenderer>());
+        colourWheelRenderers.Add(colourWheelPieces[5].GetComponent<MeshRenderer>());
+        colourWheelRenderers.Add(colourWheelPieces[6].GetComponent<MeshRenderer>());
+        colourWheelRenderers.Add(colourWheelPieces[7].GetComponent<MeshRenderer>());
+        colourWheelRenderers.Add(colourWheelPieces[8].GetComponent<MeshRenderer>());
+        colourWheelRenderers.Add(colourWheelPieces[9].GetComponent<MeshRenderer>());
+        colourWheelRenderers.Add(colourWheelPieces[10].GetComponent<MeshRenderer>());
+        colourWheelRenderers.Add(colourWheelPieces[11].GetComponent<MeshRenderer>());
+    }
+
     void ResetDefaultColours()
     {
         //---- Set Materials on Pieces ----//
-        redRenderer.material = colourWheelMats[0];
-        redOrangeRenderer.material = colourWheelMats[1];
-        orangeRenderer.material = colourWheelMats[2];
-        yellowOrangeRenderer.material = colourWheelMats[3];
-        yellowRenderer.material = colourWheelMats[4];
-        yellowGreenRenderer.material = colourWheelMats[5];
-        greenRenderer.material = colourWheelMats[6];
-        blueGreenRenderer.material = colourWheelMats[7];
-        blueRenderer.material = colourWheelMats[8];
-        bluePurpleRenderer.material = colourWheelMats[9];
-        purpleRenderer.material = colourWheelMats[10];
-        redPurpleRenderer.material = colourWheelMats[11];
+        for (int i = 0; i < colourWheel.transform.childCount; i++)
+        {
+            colourWheelRenderers[i].material = colourWheelMats[i];
+        }
     }
+    float getUniversalValue()
+    {
+        return universalSlider.value;
+    }
+    float getIntensityValue()
+    {
+        return intensitySlider.value;
+    }
+
 
     public void HueStep()
     {
@@ -361,41 +353,29 @@ public class Controller_Station2 : MonoBehaviour
         CompleteUI.gameObject.SetActive(true);
     }
 
-    float getUniversalValue()
-    {
-        return universalSlider.value;
-    }
-    float getIntensityValue()
-    {
-        return intensitySlider.value;
-    }
-
     void SaturationChanged()
     {
         for(int i = 0; i < colourWheel.transform.childCount; i++)
         {
-            Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
             float H, S, V;
             Color.RGBToHSV(colourWheelMats[i].color, out H, out S, out V);
-            tempRenderer.material.color = Color.HSVToRGB(H, getUniversalValue(), V);
+            colourWheelRenderers[i].material.color = Color.HSVToRGB(H, getUniversalValue(), V);
         }
     }
     void ValueChanged()
     {
         for (int i = 0; i < colourWheel.transform.childCount; i++)
         {
-            Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
             float H, S, V;
             Color.RGBToHSV(colourWheelMats[i].color, out H, out S, out V);
-            tempRenderer.material.color = Color.HSVToRGB(H, S, getUniversalValue());
+            colourWheelRenderers[i].material.color = Color.HSVToRGB(H, S, getUniversalValue());
         }
     }
     void TintChanged()
     {
         for (int i = 0; i < colourWheel.transform.childCount; i++)
         {
-            Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
-            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, Color.white, getUniversalValue()); 
+            colourWheelRenderers[i].material.color = Color.Lerp(colourWheelMats[i].color, Color.white, getUniversalValue()); 
         }
     }
     void ToneChanged()
@@ -403,16 +383,14 @@ public class Controller_Station2 : MonoBehaviour
         for (int i = 0; i < colourWheel.transform.childCount; i++)
         {
             Color grey = new Color(getIntensityValue(), getIntensityValue(), getIntensityValue());
-            Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
-            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, grey, getUniversalValue());
+            colourWheelRenderers[i].material.color = Color.Lerp(colourWheelMats[i].color, grey, getUniversalValue());
         }
     }
     void ShadeChanged()
     {
         for (int i = 0; i < colourWheel.transform.childCount; i++)
         {
-            Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
-            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, Color.black, getUniversalValue());
+            colourWheelRenderers[i].material.color = Color.Lerp(colourWheelMats[i].color, Color.black, getUniversalValue());
         }
     }
 

@@ -1566,6 +1566,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875520497}
   m_CullTransparentMesh: 0
+--- !u!21 &896624269
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Station2Material
+
+    21124'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: a34cada32e5a2d747832f7bdc9b65f0c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &944559367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,34 +1987,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057599688}
   m_CullTransparentMesh: 0
---- !u!21 &1076260965
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Station2Material
-
-    14512'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a34cada32e5a2d747832f7bdc9b65f0c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1223081004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2074,10 +2074,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2003051486}
     m_Modifications:
+    - target: {fileID: 238362841089446120, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 11_Red-Purple
+      objectReference: {fileID: 0}
+    - target: {fileID: 349202849341669789, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 8_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 876006725642835548, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 1_Red-Orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 922234496657558560, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 2_Orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398900049450080493, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 7_Blue-Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424949122472526004, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 4_Yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016284489833619552, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 9_Blue-Purple
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154638728804272884, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 6_Green
+      objectReference: {fileID: 0}
     - target: {fileID: 5175309519542523496, guid: ef47c46951434734f8caea1a4683bb23,
         type: 3}
       propertyPath: m_Name
       value: ColourWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102200777702510931, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 5_Yellow-Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221982435171319506, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 3_Yellow-Orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 8240472850290439718, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 10_Purple
       objectReference: {fileID: 0}
     - target: {fileID: 8762095813747308503, guid: ef47c46951434734f8caea1a4683bb23,
         type: 3}
@@ -2148,6 +2203,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929461268551024726, guid: ef47c46951434734f8caea1a4683bb23,
+        type: 3}
+      propertyPath: m_Name
+      value: 0_Red
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef47c46951434734f8caea1a4683bb23, type: 3}
@@ -3178,7 +3238,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1076260965}
+  - {fileID: 896624269}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3671,6 +3731,8 @@ MonoBehaviour:
   flashOffset: 1
   flashSpeed: 5
   colourWheel: {fileID: 478953243}
+  colourWheelPieces: []
+  colourWheelRenderers: []
   colourWheelMats:
   - {fileID: 2100000, guid: b62ff73845dd7044c89d0b67a93acb81, type: 2}
   - {fileID: 2100000, guid: 00eb04652d545d143bba841a6c50e11e, type: 2}
