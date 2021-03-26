@@ -47,9 +47,9 @@ public class Controller_Station2 : MonoBehaviour
     GameObject redPurplePiece;
     Renderer redPurpleRenderer;
 
-    //---- Declare Colour Wheel Materials (Drag In) ----//
+    //---- Declare Colour Wheel Materials (Drag In 12) ----//
     [Header("CW Materials")]
-    public List<Material> colourWheelMats;
+    public List<Material> colourWheelMats = new List<Material>(12);
 
 
     //---- Variables ----//
@@ -58,8 +58,12 @@ public class Controller_Station2 : MonoBehaviour
                             // 2 - Saturation
                             // 3 - Value
                             // 4 - Tints/Shades/Tones
+    public Canvas Station2_UI;
+
+    public Button startButton;
     public Button nextButton;
     public Button prevButton;
+    public GameObject headerTextBackground;
     public Text headerText;
     public Slider universalSlider;
     public Slider intensitySlider;
@@ -69,6 +73,9 @@ public class Controller_Station2 : MonoBehaviour
     public Text tintDescription;
     public Text toneDescription;
     public Text shadeDescription;
+    public GameObject StartUI;
+    public GameObject textBackground;
+    public GameObject CompleteUI;
 
 
     // Start is called before the first frame update
@@ -82,9 +89,25 @@ public class Controller_Station2 : MonoBehaviour
         flashOffset = 1f;
         flashSpeed = 5;
 
+        StartUI.gameObject.SetActive(true);
+
+        startButton.gameObject.SetActive(true);
+        nextButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(false);
-        universalSlider.gameObject.SetActive(false);
+
         intensitySlider.gameObject.SetActive(false);
+        universalSlider.gameObject.SetActive(false);
+
+        headerTextBackground.SetActive(false);
+        textBackground.gameObject.SetActive(false);
+        hueDescription.gameObject.SetActive(false);
+        saturationDescription.gameObject.SetActive(false);
+        valueDescription.gameObject.SetActive(false);
+        tintDescription.gameObject.SetActive(false);
+        toneDescription.gameObject.SetActive(false);
+        shadeDescription.gameObject.SetActive(false);
+
+        CompleteUI.gameObject.SetActive(false);
 
         //---- Get Colour Wheel Game Objects and Mesh Renderers ----//
         redPiece = colourWheel.gameObject.transform.Find("1_Red").GetChild(0).gameObject;
@@ -131,7 +154,8 @@ public class Controller_Station2 : MonoBehaviour
 
     public void changeStep(bool increment)
     {
-        //ADD COLOUR RESET HERE
+        ResetDefaultColours();
+
         if (increment)
         {
             currentStep++;
@@ -161,12 +185,36 @@ public class Controller_Station2 : MonoBehaviour
             case 6: //Shade Step
                 ShadeStep();
                 break;
+            case 7: //Learning Module Complete
+                CompleteStep();
+                break;
             default: //Otherwise
                 break;
         }
     }
-    void HueStep()
+
+    void ResetDefaultColours()
     {
+        //---- Set Materials on Pieces ----//
+        redRenderer.material = colourWheelMats[0];
+        redOrangeRenderer.material = colourWheelMats[1];
+        orangeRenderer.material = colourWheelMats[2];
+        yellowOrangeRenderer.material = colourWheelMats[3];
+        yellowRenderer.material = colourWheelMats[4];
+        yellowGreenRenderer.material = colourWheelMats[5];
+        greenRenderer.material = colourWheelMats[6];
+        blueGreenRenderer.material = colourWheelMats[7];
+        blueRenderer.material = colourWheelMats[8];
+        bluePurpleRenderer.material = colourWheelMats[9];
+        purpleRenderer.material = colourWheelMats[10];
+        redPurpleRenderer.material = colourWheelMats[11];
+    }
+
+    public void HueStep()
+    {
+        StartUI.gameObject.SetActive(false);
+
+        startButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(false);
         nextButton.gameObject.SetActive(true);
         headerText.text = "HUE";
@@ -174,15 +222,22 @@ public class Controller_Station2 : MonoBehaviour
         intensitySlider.gameObject.SetActive(false);
         universalSlider.gameObject.SetActive(false);
 
+        headerTextBackground.SetActive(true);
+        textBackground.gameObject.SetActive(true);
         hueDescription.gameObject.SetActive(true);
         saturationDescription.gameObject.SetActive(false);
         valueDescription.gameObject.SetActive(false);
         tintDescription.gameObject.SetActive(false);
         toneDescription.gameObject.SetActive(false);
         shadeDescription.gameObject.SetActive(false);
+
+        CompleteUI.gameObject.SetActive(false);
     }
-    void SaturationStep()
+    public void SaturationStep()
     {
+        StartUI.gameObject.SetActive(false);
+
+        startButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(true);
         headerText.text = "SATURATION";
@@ -190,6 +245,8 @@ public class Controller_Station2 : MonoBehaviour
         intensitySlider.gameObject.SetActive(false);
         universalSlider.gameObject.SetActive(true);
 
+        headerTextBackground.SetActive(true);
+        textBackground.gameObject.SetActive(true);
         hueDescription.gameObject.SetActive(false);
         saturationDescription.gameObject.SetActive(true);
         valueDescription.gameObject.SetActive(false);
@@ -197,14 +254,22 @@ public class Controller_Station2 : MonoBehaviour
         toneDescription.gameObject.SetActive(false);
         shadeDescription.gameObject.SetActive(false);
 
+        CompleteUI.gameObject.SetActive(false);
     }
-    void ValueStep()
+    public void ValueStep()
     {
+        StartUI.gameObject.SetActive(false);
+
+        startButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(true);
         headerText.text = "VALUE";
 
         intensitySlider.gameObject.SetActive(false);
+        universalSlider.gameObject.SetActive(true);
+
+        headerTextBackground.SetActive(true);
+        textBackground.gameObject.SetActive(true);
         hueDescription.gameObject.SetActive(false);
         saturationDescription.gameObject.SetActive(false);
         valueDescription.gameObject.SetActive(true);
@@ -212,9 +277,13 @@ public class Controller_Station2 : MonoBehaviour
         toneDescription.gameObject.SetActive(false);
         shadeDescription.gameObject.SetActive(false);
 
+        CompleteUI.gameObject.SetActive(false);
     }
-    void TintStep()
+    public void TintStep()
     {
+        StartUI.gameObject.SetActive(false);
+
+        startButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(true);
         headerText.text = "TINT";
@@ -222,6 +291,8 @@ public class Controller_Station2 : MonoBehaviour
         intensitySlider.gameObject.SetActive(false);
         universalSlider.gameObject.SetActive(true);
 
+        headerTextBackground.SetActive(true);
+        textBackground.gameObject.SetActive(true);
         hueDescription.gameObject.SetActive(false);
         saturationDescription.gameObject.SetActive(false);
         valueDescription.gameObject.SetActive(false);
@@ -229,9 +300,13 @@ public class Controller_Station2 : MonoBehaviour
         toneDescription.gameObject.SetActive(false);
         shadeDescription.gameObject.SetActive(false);
 
+        CompleteUI.gameObject.SetActive(false);
     }
-    void ToneStep()
+    public void ToneStep()
     {
+        StartUI.gameObject.SetActive(false);
+
+        startButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(true);
         headerText.text = "TONE";
@@ -239,6 +314,8 @@ public class Controller_Station2 : MonoBehaviour
         intensitySlider.gameObject.SetActive(true);
         universalSlider.gameObject.SetActive(true);
 
+        headerTextBackground.SetActive(true);
+        textBackground.gameObject.SetActive(true);
         hueDescription.gameObject.SetActive(false);
         saturationDescription.gameObject.SetActive(false);
         valueDescription.gameObject.SetActive(false);
@@ -246,16 +323,22 @@ public class Controller_Station2 : MonoBehaviour
         toneDescription.gameObject.SetActive(true);
         shadeDescription.gameObject.SetActive(false);
 
+        CompleteUI.gameObject.SetActive(false);
     }
-    void ShadeStep()
+    public void ShadeStep()
     {
+        StartUI.gameObject.SetActive(false);
+
+        startButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(true);
-        nextButton.gameObject.SetActive(false);
+        nextButton.gameObject.SetActive(true);
         headerText.text = "SHADE";
 
         intensitySlider.gameObject.SetActive(false);
         universalSlider.gameObject.SetActive(true);
 
+        headerTextBackground.SetActive(true);
+        textBackground.gameObject.SetActive(true);
         hueDescription.gameObject.SetActive(false);
         saturationDescription.gameObject.SetActive(false);
         valueDescription.gameObject.SetActive(false);
@@ -263,6 +346,30 @@ public class Controller_Station2 : MonoBehaviour
         toneDescription.gameObject.SetActive(false);
         shadeDescription.gameObject.SetActive(true);
 
+        CompleteUI.gameObject.SetActive(false);
+    }
+    public void CompleteStep()
+    {
+        StartUI.gameObject.SetActive(false);
+
+        startButton.gameObject.SetActive(false);
+        prevButton.gameObject.SetActive(true);
+        nextButton.gameObject.SetActive(false);
+        headerText.text = "COMPLETE";
+
+        intensitySlider.gameObject.SetActive(false);
+        universalSlider.gameObject.SetActive(false);
+
+        headerTextBackground.SetActive(false);
+        textBackground.gameObject.SetActive(false);
+        hueDescription.gameObject.SetActive(false);
+        saturationDescription.gameObject.SetActive(false);
+        valueDescription.gameObject.SetActive(false);
+        tintDescription.gameObject.SetActive(false);
+        toneDescription.gameObject.SetActive(false);
+        shadeDescription.gameObject.SetActive(false);
+
+        CompleteUI.gameObject.SetActive(true);
     }
 
     void SaturationChanged()
