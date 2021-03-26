@@ -131,6 +131,7 @@ public class Controller_Station2 : MonoBehaviour
 
     public void changeStep(bool increment)
     {
+        //ADD COLOUR RESET HERE
         if (increment)
         {
             currentStep++;
@@ -290,15 +291,15 @@ public class Controller_Station2 : MonoBehaviour
     }
     void TintChanged()
     {
-        //float intensityValue = intensitySlider.value;
-        //float universalValue = universalSlider.value;
-        //Debug.Log(colourWheel.transform.childCount);
-        //for (int i = 0; i < colourWheel.transform.childCount; i++)
-        //{
-        //    Color grey = new Color(intensityValue * universalValue, intensityValue * universalValue, intensityValue * universalValue);
-        //    Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
-        //    tempRenderer.material.color = colourWheelMats[i].color + grey;
-        //}
+        float intensityValue = intensitySlider.value;
+        float universalValue = universalSlider.value;
+        Debug.Log(colourWheel.transform.childCount);
+        for (int i = 0; i < colourWheel.transform.childCount; i++)
+        {
+            Color grey = new Color(intensityValue, intensityValue, intensityValue);
+            Renderer tempRenderer = colourWheel.transform.GetChild(i).transform.GetChild(0).GetComponent<MeshRenderer>();
+            tempRenderer.material.color = Color.Lerp(colourWheelMats[i].color, grey, universalValue); ;
+        }
     }
     void ToneChanged()
     {
