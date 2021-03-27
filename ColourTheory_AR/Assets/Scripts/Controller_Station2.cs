@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class Controller_Station2 : MonoBehaviour
     //---- Utility Scripts ----//
     [Header("Utility Scripts")]
     MaterialAnimations _materialAnimator;
+    ColourWheel _colourWheel;
 
 
     //---- Colour Flashing Controls ----//
@@ -19,9 +21,6 @@ public class Controller_Station2 : MonoBehaviour
     [Range(0, 10)]
     public int flashSpeed = 5;
 
-    //---- Declare Colour Wheel Game Objects and Mesh Renderers ----//
-    [Header("Colour Wheel")]
-    public GameObject colourWheel;
     public List<GameObject> colourWheelPieces = new List<GameObject>(12);
     public List<Renderer> colourWheelRenderers = new List<Renderer>(12);
     //---- Declare Colour Wheel Materials (Drag In 12) ----//
@@ -64,17 +63,17 @@ public class Controller_Station2 : MonoBehaviour
         setDefaults();
 
         //---- Get Colour Wheel Game Objects and Mesh Renderers ----//
-        setWheelPieces();
-        setWheelRenderers();
+        _colourWheel.setWheelPieces(colourWheelPieces);
+        _colourWheel.setWheelRenderers(colourWheelPieces, colourWheelRenderers);
 
         //---- Set Materials on Pieces ----//
-        ResetDefaultColours();
+        _colourWheel.ResetDefaultColours(colourWheelRenderers);
 
     }
 
     public void changeStep(bool increment)
     {
-        ResetDefaultColours();
+        _colourWheel.ResetDefaultColours(colourWheelRenderers);
 
         if (increment)
         {
@@ -141,46 +140,6 @@ public class Controller_Station2 : MonoBehaviour
         CompleteUI.gameObject.SetActive(false);
     }
 
-    void setWheelPieces()
-    {
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("0_Red").GetChild(0).gameObject);
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("1_Red-Orange").GetChild(0).gameObject);
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("2_Orange").GetChild(0).gameObject);
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("3_Yellow-Orange").GetChild(0).gameObject);
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("4_Yellow").GetChild(0).gameObject);
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("5_Yellow-Green").GetChild(0).gameObject);
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("6_Green").GetChild(0).gameObject);
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("7_Blue-Green").GetChild(0).gameObject);
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("8_Blue").GetChild(0).gameObject);
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("9_Blue-Purple").GetChild(0).gameObject);
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("10_Purple").GetChild(0).gameObject);
-        colourWheelPieces.Add(colourWheel.gameObject.transform.Find("11_Red-Purple").GetChild(0).gameObject);
-    }
-
-    void setWheelRenderers()
-    {      
-        colourWheelRenderers.Add(colourWheelPieces[0].GetComponent<MeshRenderer>());
-        colourWheelRenderers.Add(colourWheelPieces[1].GetComponent<MeshRenderer>());
-        colourWheelRenderers.Add(colourWheelPieces[2].GetComponent<MeshRenderer>());
-        colourWheelRenderers.Add(colourWheelPieces[3].GetComponent<MeshRenderer>());
-        colourWheelRenderers.Add(colourWheelPieces[4].GetComponent<MeshRenderer>());
-        colourWheelRenderers.Add(colourWheelPieces[5].GetComponent<MeshRenderer>());
-        colourWheelRenderers.Add(colourWheelPieces[6].GetComponent<MeshRenderer>());
-        colourWheelRenderers.Add(colourWheelPieces[7].GetComponent<MeshRenderer>());
-        colourWheelRenderers.Add(colourWheelPieces[8].GetComponent<MeshRenderer>());
-        colourWheelRenderers.Add(colourWheelPieces[9].GetComponent<MeshRenderer>());
-        colourWheelRenderers.Add(colourWheelPieces[10].GetComponent<MeshRenderer>());
-        colourWheelRenderers.Add(colourWheelPieces[11].GetComponent<MeshRenderer>());
-    }
-
-    void ResetDefaultColours()
-    {
-        //---- Set Materials on Pieces ----//
-        for (int i = 0; i < colourWheel.transform.childCount; i++)
-        {
-            colourWheelRenderers[i].material = colourWheelMats[i];
-        }
-    }
     float getUniversalValue()
     {
         return universalSlider.value;
@@ -355,7 +314,7 @@ public class Controller_Station2 : MonoBehaviour
 
     void SaturationChanged()
     {
-        for(int i = 0; i < colourWheel.transform.childCount; i++)
+        for(int i = 0; i < colourWheelRenderers.Count; i++)
         {
             float H, S, V;
             Color.RGBToHSV(colourWheelMats[i].color, out H, out S, out V);
@@ -364,7 +323,7 @@ public class Controller_Station2 : MonoBehaviour
     }
     void ValueChanged()
     {
-        for (int i = 0; i < colourWheel.transform.childCount; i++)
+        for (int i = 0; i < colourWheelRenderers.Count; i++)
         {
             float H, S, V;
             Color.RGBToHSV(colourWheelMats[i].color, out H, out S, out V);
@@ -373,14 +332,14 @@ public class Controller_Station2 : MonoBehaviour
     }
     void TintChanged()
     {
-        for (int i = 0; i < colourWheel.transform.childCount; i++)
+        for (int i = 0; i < colourWheelRenderers.Count; i++)
         {
             colourWheelRenderers[i].material.color = Color.Lerp(colourWheelMats[i].color, Color.white, getUniversalValue()); 
         }
     }
     void ToneChanged()
     {
-        for (int i = 0; i < colourWheel.transform.childCount; i++)
+        for (int i = 0; i < colourWheelRenderers.Count; i++)
         {
             Color grey = new Color(getIntensityValue(), getIntensityValue(), getIntensityValue());
             colourWheelRenderers[i].material.color = Color.Lerp(colourWheelMats[i].color, grey, getUniversalValue());
@@ -388,7 +347,7 @@ public class Controller_Station2 : MonoBehaviour
     }
     void ShadeChanged()
     {
-        for (int i = 0; i < colourWheel.transform.childCount; i++)
+        for (int i = 0; i < colourWheelRenderers.Count; i++)
         {
             colourWheelRenderers[i].material.color = Color.Lerp(colourWheelMats[i].color, Color.black, getUniversalValue());
         }
