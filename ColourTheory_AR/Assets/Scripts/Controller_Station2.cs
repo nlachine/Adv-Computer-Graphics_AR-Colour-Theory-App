@@ -58,6 +58,7 @@ public class Controller_Station2 : MonoBehaviour
     {
         //---- Get Utility Scripts ----//
         _materialAnimator = this.GetComponent<MaterialAnimations>();
+        _colourWheel = this.GetComponent<ColourWheel>();
 
         //---- Set Default Parameters ----//
         setDefaults();
