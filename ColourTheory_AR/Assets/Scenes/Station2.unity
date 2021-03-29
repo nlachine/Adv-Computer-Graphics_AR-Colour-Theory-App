@@ -161,8 +161,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.5, y: 601.19995}
-  m_SizeDelta: {x: -124.22864, y: 701.6355}
+  m_AnchoredPosition: {x: 0.5, y: 492}
+  m_SizeDelta: {x: -124.22864, y: 531.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14242704
 MonoBehaviour:
@@ -439,7 +439,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -773,12 +773,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428494693}
   m_CullTransparentMesh: 0
---- !u!1 &478953243 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5175309519542523496, guid: ef47c46951434734f8caea1a4683bb23,
-    type: 3}
-  m_PrefabInstance: {fileID: 1333997906}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &535673229
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,7 +947,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1076,8 +1070,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726258013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0000011326}
+  m_LocalScale: {x: 0.70309, y: 0.70309, z: 0.70309}
   m_Children:
   - {fileID: 48444874}
   m_Father: {fileID: 1746055992}
@@ -1085,7 +1079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -419.6, y: 142}
+  m_AnchoredPosition: {x: -294.88, y: 142}
   m_SizeDelta: {x: 160.6925, y: 137.40198}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &726258015
@@ -1386,7 +1380,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1397,7 +1391,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '<b><size=100><color=#00bb00>CONGRATULATIONS</color></size></b>
+  m_Text: '<b><size=60><color=#00bb00>CONGRATULATIONS</color></size></b>
 
 
 
@@ -1408,7 +1402,7 @@ MonoBehaviour:
 
 
 
-    <i><b><size=50>Proceed to
+    <i><b><size=40>Proceed to
     Station 3: Schemes</size></b></i>'
 --- !u!222 &818934010
 CanvasRenderer:
@@ -1566,34 +1560,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875520497}
   m_CullTransparentMesh: 0
---- !u!21 &896624269
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Station2Material
-
-    21124'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a34cada32e5a2d747832f7bdc9b65f0c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &944559367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,7 +1586,7 @@ RectTransform:
   m_GameObject: {fileID: 944559367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 1992054441}
   - {fileID: 1524027225}
@@ -1630,10 +1596,10 @@ RectTransform:
   m_Father: {fileID: 1746055992}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.5, y: -197}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0.5, y: -89}
+  m_SizeDelta: {x: -668, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &944559369
 MonoBehaviour:
@@ -1723,8 +1689,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983053299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0000011326}
+  m_LocalScale: {x: 0.70309, y: 0.70309, z: 0.70309}
   m_Children:
   - {fileID: 1681490746}
   m_Father: {fileID: 1746055992}
@@ -1732,7 +1698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 90.2, y: 142}
+  m_AnchoredPosition: {x: 63.556, y: 142}
   m_SizeDelta: {x: 821.3334, y: 137.40198}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &983053301
@@ -1865,7 +1831,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1987,6 +1953,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057599688}
   m_CullTransparentMesh: 0
+--- !u!21 &1216935275
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Station2Material
+
+    14516'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: a34cada32e5a2d747832f7bdc9b65f0c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1223081004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,7 +2342,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2422,10 +2416,10 @@ RectTransform:
   m_Father: {fileID: 1746055992}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.00012207031, y: 2362.5}
-  m_SizeDelta: {x: -0.00012207031, y: 147.021}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.00012207031, y: -73}
+  m_SizeDelta: {x: 827.9999, y: 147.021}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1409984180
 MonoBehaviour:
@@ -2563,7 +2557,7 @@ MonoBehaviour:
   m_MinValue: 0.1
   m_MaxValue: 0.9
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.9
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2587,7 +2581,7 @@ RectTransform:
   m_GameObject: {fileID: 1597166572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 875520498}
   - {fileID: 535673230}
@@ -2597,10 +2591,10 @@ RectTransform:
   m_Father: {fileID: 1746055992}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00012207, y: -25}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -0.00012207031, y: 49.443092}
+  m_SizeDelta: {x: -668, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1629351146
 GameObject:
@@ -2928,7 +2922,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3238,7 +3232,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 896624269}
+  - {fileID: 1216935275}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3368,7 +3362,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3379,7 +3373,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '<b><size=100><color=#229922>STATION 2: LEVELS</color></size></b>
+  m_Text: '<b><size=70><color=#229922>STATION 2: LEVELS</color></size></b>
 
 
 
@@ -3442,8 +3436,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859740183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000053158}
+  m_LocalScale: {x: 0.86065, y: 0.86065, z: 0.86065}
   m_Children:
   - {fileID: 1744366437}
   m_Father: {fileID: 1746055992}
@@ -3730,7 +3724,6 @@ MonoBehaviour:
   flashAmplitude: 0.5
   flashOffset: 1
   flashSpeed: 5
-  colourWheel: {fileID: 478953243}
   colourWheelPieces: []
   colourWheelRenderers: []
   colourWheelMats:
@@ -3849,7 +3842,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
