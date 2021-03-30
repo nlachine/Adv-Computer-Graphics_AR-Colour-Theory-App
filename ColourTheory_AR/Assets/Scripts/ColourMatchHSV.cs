@@ -47,7 +47,7 @@ public class ColourMatchHSV : MonoBehaviour
     }
     public void OnSliderChange()
     {
-        matchObjMat.color = Color.HSVToRGB(hueSlider.value, satSlider.value, 1-valSlider.value);
+        alterObjMat.color = Color.HSVToRGB(hueSlider.value, satSlider.value, 1-valSlider.value);
 
         hueCB.normalColor = Color.HSVToRGB(hueSlider.value, 1.0f, 1.0f);
         hueCB.selectedColor = Color.HSVToRGB(hueSlider.value, 1.0f, 1.0f);
@@ -59,7 +59,7 @@ public class ColourMatchHSV : MonoBehaviour
         satCB.selectedColor = Color.HSVToRGB(hueSlider.value, satSlider.value, 1.0f);
         satCB.highlightedColor = Color.HSVToRGB(hueSlider.value, satSlider.value, 1.0f);
         satCB.pressedColor = Color.HSVToRGB(hueSlider.value, satSlider.value, 0.8f);
-        satSlider.colors = hueCB;
+        satSlider.colors = satCB;
     }
 
     public void CheckMatch()

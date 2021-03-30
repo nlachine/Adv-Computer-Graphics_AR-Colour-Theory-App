@@ -58,10 +58,6 @@ public class HandleColour : MonoBehaviour
 
     public Color RandomizeHSV()
     {
-        float h_rand = Random.Range(0.0f,1.0f);
-        float s_rand = Random.Range(0.2f,1.0f);
-        float v_rand = Random.Range(0.2f,1.0f);
-        Color tempCol = Color.HSVToRGB(h_rand, s_rand, v_rand);
-        return tempCol;
+        return Random.ColorHSV(0.0f, 1.0f, 0.1f, 1.0f, 0.1f, 1.0f);
     }
 }
