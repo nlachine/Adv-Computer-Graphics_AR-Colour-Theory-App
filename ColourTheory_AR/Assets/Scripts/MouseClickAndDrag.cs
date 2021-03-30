@@ -11,6 +11,9 @@ public class MouseClickAndDrag : MonoBehaviour
     bool enableDragging = true;
     bool holdingObject = false;
 
+
+    //Station 1 Specific
+    public Vector3 originalPos;
     float zPos;
 
     // Start is called before the first frame update
@@ -19,10 +22,21 @@ public class MouseClickAndDrag : MonoBehaviour
         zPos = transform.localPosition.z;
     }
 
+    private void Awake()
+    {
+        originalPos = transform.localPosition;
+    }
+
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    //Station 1 Specific
+    public Vector3 getOriginalPos()
+    {
+        return originalPos;
     }
 
     public void setDragging(bool _enabled)
@@ -58,7 +72,6 @@ public class MouseClickAndDrag : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("doin me a collide");
         if (other.tag == gameObject.tag && !holdingObject)
         {
             other.gameObject.GetComponent<MeshRenderer>().material = this.GetComponent<MeshRenderer>().material;

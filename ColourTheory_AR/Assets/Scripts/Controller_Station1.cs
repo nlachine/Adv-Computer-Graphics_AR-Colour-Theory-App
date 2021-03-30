@@ -54,8 +54,8 @@ public class Controller_Station1 : MonoBehaviour
     
 
     //Station 1 Specific
-    bool enableDragging = false;
     public GameObject MinigameObjectHolder;
+    public List<GameObject> MinigameObjects;
 
     // Start is called before the first frame update
     void Start()
@@ -341,6 +341,12 @@ public class Controller_Station1 : MonoBehaviour
         {
             if (i != 0 && i != 4 && i != 8)
                 colourWheelRenderers[i].material.color = Color.white;
+        }
+
+        foreach (GameObject item in MinigameObjects)
+        {
+            item.SetActive(true);
+            item.transform.localPosition = item.GetComponent<MouseClickAndDrag>().getOriginalPos();
         }
     }
     public void CompleteStep()
