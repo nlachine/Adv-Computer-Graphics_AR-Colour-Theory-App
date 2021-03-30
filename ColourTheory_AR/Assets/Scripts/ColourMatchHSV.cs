@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class ColourMatchHSV : MonoBehaviour
 {
 
     HandleColour _handleColour;
+    public UnityEvent CompleteFunction;
+
+    public int gameOverTotal = 3;
 
     [Header("Sliders")]
     public Slider hueSlider;
@@ -86,7 +90,17 @@ public class ColourMatchHSV : MonoBehaviour
             v_correct = true;
 
         if (h_correct && s_correct && v_correct)
+        {
+            correctCount += 1;
+            if (correctCount == gameOverTotal)
+            {
+                CompleteFunction.Invoke();
+                return;
+            }
             newMatch();
+        }
+
+
 
     }
 
