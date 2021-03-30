@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HandleColour : MonoBehaviour
 {
@@ -15,17 +16,7 @@ public class HandleColour : MonoBehaviour
     float[] greenRYB = { 0.0f, 0.66f, 0.2f }; // 011 RYB
     float[] blackRYB = { 0.2f, 0.094f, 0.0f }; // 111 RYB
 
-    // //RGB-> RYB Colour Constants
-    // float[] blackRGB = { 1.0f, 1.0f, 1.0f }; // 000 RYB
-    // float[] redRGB = { 1.0f, 0.0f, 0.0f }; // 100 RYB
-    // float[] greenRGB = { 0.0f, 1.0f, 0.483f }; // 010 RYB
-    // float[] yellowRGB = { 0.0f, 1.0f, 0.0f }; // 110 RYB
-    // float[] blueRGB = { 0.0f, 0.0f, 1.0f }; // 001 RYB
-    // float[] magentaRGB = { 0.309f, 0.0f, 0.469f }; // 101 RYB
-    // float[] turquiosRGB = { 0.0f, 0.053f, 0.21f }; // 011 RYB
-    // float[] whiteRGB = { 0.0f, 0.0f, 0.0f }; // 111 RYB
-
-    public Color ConvertToRGB(float _r, float _y, float _b)
+    public Color RYBToRGB(float _r, float _y, float _b)
     {
         Color outputColour = new Color(0,0,0);
 
@@ -57,12 +48,20 @@ public class HandleColour : MonoBehaviour
         return outputColour;
     }
 
-    public Color Randomize()
+    public Color RandomizeRGB()
     {
         float r_rand = Random.Range(0.0f,1.0f);
-        float y_rand = Random.Range(0.0f,1.0f);
+        float g_rand = Random.Range(0.0f,1.0f);
         float b_rand = Random.Range(0.0f,1.0f);
-        //GetComponent<Renderer>().material.color = ConvertToRGB(r_rand, y_rand, b_rand);
-        return new Color(r_rand,y_rand,b_rand);
+        return new Color(r_rand,g_rand,b_rand);
+    }
+
+    public Color RandomizeHSV()
+    {
+        float h_rand = Random.Range(0.0f,1.0f);
+        float s_rand = Random.Range(0.2f,1.0f);
+        float v_rand = Random.Range(0.2f,1.0f);
+        Color tempCol = Color.HSVToRGB(h_rand, s_rand, v_rand);
+        return tempCol;
     }
 }

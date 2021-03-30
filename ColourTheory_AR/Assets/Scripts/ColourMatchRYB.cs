@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ColourSlider : MonoBehaviour
+public class ColourMatchRYB : MonoBehaviour
 {
     private bool isReset = false;
 
@@ -27,6 +27,7 @@ public class ColourSlider : MonoBehaviour
     private Color matchSphere_RYB;
 
     //How close do you have to be for each colour + or - tolerance
+
     float tolerance = 0.10f;
 
     //UI Properties
@@ -70,7 +71,7 @@ public class ColourSlider : MonoBehaviour
         alterSphere_RYB.b = slider_blue.value;
 
         //Convert slider to RGB for display
-        alterSphere_RGB = s_handleColour.ConvertToRGB(alterSphere_RYB.r, alterSphere_RYB.g, alterSphere_RYB.b);
+        alterSphere_RGB = s_handleColour.RYBToRGB(alterSphere_RYB.r, alterSphere_RYB.g, alterSphere_RYB.b);
         as_Material.color = alterSphere_RGB;
 
         //checkMatch();
@@ -99,13 +100,13 @@ public class ColourSlider : MonoBehaviour
         as_Material = _Renderer.material;
 
         //Randomize the match material (RYB) & convert to display (RGB)
-        matchSphere_RYB = s_handleColour.Randomize();
-        matchSphere_RGB = s_handleColour.ConvertToRGB(matchSphere_RYB.r, matchSphere_RYB.g, matchSphere_RYB.b);
+        matchSphere_RYB = s_handleColour.RandomizeRGB();
+        matchSphere_RGB = s_handleColour.RYBToRGB(matchSphere_RYB.r, matchSphere_RYB.g, matchSphere_RYB.b);
         ms_Material.color = matchSphere_RGB;
 
         //Randomize the alter spheres colour (RYB) & conver to display (RGB)
-        alterSphere_RYB = s_handleColour.Randomize();
-        alterSphere_RGB = s_handleColour.ConvertToRGB(alterSphere_RYB.r, alterSphere_RYB.g, alterSphere_RYB.b);
+        alterSphere_RYB = s_handleColour.RandomizeRGB();
+        alterSphere_RGB = s_handleColour.RYBToRGB(alterSphere_RYB.r, alterSphere_RYB.g, alterSphere_RYB.b);
         as_Material.color = alterSphere_RGB;
 
         //Match sliders to be correct to the alter sphere
@@ -188,8 +189,8 @@ public class ColourSlider : MonoBehaviour
 
             match_img.SetActive(false);
             //New colour.
-            matchSphere_RYB = s_handleColour.Randomize();
-            matchSphere_RGB = s_handleColour.ConvertToRGB(matchSphere_RYB.r, matchSphere_RYB.g, matchSphere_RYB.b);
+            matchSphere_RYB = s_handleColour.RandomizeRGB();
+            matchSphere_RGB = s_handleColour.RYBToRGB(matchSphere_RYB.r, matchSphere_RYB.g, matchSphere_RYB.b);
             ms_Material.color = matchSphere_RGB;
 
             resetCheck();
