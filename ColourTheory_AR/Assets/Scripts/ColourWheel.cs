@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class ColourWheel : MonoBehaviour
 {
-    //---- Declare Colour Wheel Game Objects and Mesh Renderers ----//
     [Header("Colour Wheel")]
-    public List<GameObject> colourWheelPieces = new List<GameObject>(12);
-    public List<Renderer> colourWheelRenderers = new List<Renderer>(12);
-    //---- Declare Colour Wheel Materials (Drag In 12) ----//
     public List<Material> colourWheelMats = new List<Material>(12);
 
     public GameObject getColourWheel()
