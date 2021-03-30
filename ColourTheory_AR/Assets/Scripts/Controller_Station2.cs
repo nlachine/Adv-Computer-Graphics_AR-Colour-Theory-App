@@ -33,6 +33,7 @@ public class Controller_Station2 : MonoBehaviour
                             // 2 - Saturation
                             // 3 - Value
                             // 4 - Tints/Shades/Tones
+    public GameObject gameUI;
     public Canvas Station2_UI;
 
     public Button startButton;
@@ -106,6 +107,9 @@ public class Controller_Station2 : MonoBehaviour
                 ShadeStep();
                 break;
             case 7: //Learning Module Complete
+                GameStep();
+                break;
+            case 8: //Learning Module Complete
                 CompleteStep();
                 break;
             default: //Otherwise
@@ -289,12 +293,23 @@ public class Controller_Station2 : MonoBehaviour
 
         CompleteUI.gameObject.SetActive(false);
     }
+
+    public void GameStep()
+    {
+        _colourWheel.getColourWheel().gameObject.SetActive(false);
+        Station2_UI.gameObject.SetActive(false);
+        gameUI.gameObject.SetActive(true);
+    }
+
     public void CompleteStep()
     {
+        Station2_UI.gameObject.SetActive(true);
+        gameUI.gameObject.SetActive(false);
+
         StartUI.gameObject.SetActive(false);
 
         startButton.gameObject.SetActive(false);
-        prevButton.gameObject.SetActive(true);
+        prevButton.gameObject.SetActive(false);
         nextButton.gameObject.SetActive(false);
         headerText.text = "COMPLETE";
 

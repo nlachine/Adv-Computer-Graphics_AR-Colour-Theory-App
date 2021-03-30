@@ -41,14 +41,14 @@ public class AlterSphere : MonoBehaviour
     {
         //randomizes the altered color and converts to rgb to be read by unity
         AlterColorRYB = AlterMaterial.color;
-        AlterColorRYB = _handleColour.Randomize();
-        AlterColorRGB = _handleColour.ConvertToRGB(AlterColorRYB.r, AlterColorRYB.g, AlterColorRYB.b);
+        AlterColorRYB = _handleColour.RandomizeRGB();
+        AlterColorRGB = _handleColour.RYBToRGB(AlterColorRYB.r, AlterColorRYB.g, AlterColorRYB.b);
         AlterMaterial.color = AlterColorRGB;
 
         //randomizes the complementary color and converts to rgb to be read by unity
         ComplementaryColorRYB = ComplementaryMaterial.color;
-        ComplementaryColorRYB = _handleColour.Randomize();
-        ComplementaryColorRGB = _handleColour.ConvertToRGB(ComplementaryColorRYB.r, ComplementaryColorRYB.g, ComplementaryColorRYB.b);
+        ComplementaryColorRYB = _handleColour.RandomizeRGB();
+        ComplementaryColorRGB = _handleColour.RYBToRGB(ComplementaryColorRYB.r, ComplementaryColorRYB.g, ComplementaryColorRYB.b);
         ComplementaryMaterial.color = ComplementaryColorRGB;
         Debug.Log(1 - ComplementaryColorRYB.r);
         Debug.Log(1 - ComplementaryColorRYB.g);
@@ -71,7 +71,7 @@ public class AlterSphere : MonoBehaviour
         AlterColorRYB.b = blueSlider.value;
 
         //Convert slider to RGB for display
-        AlterColorRGB = _handleColour.ConvertToRGB(AlterColorRYB.r, AlterColorRYB.g, AlterColorRYB.b);
+        AlterColorRGB = _handleColour.RYBToRGB(AlterColorRYB.r, AlterColorRYB.g, AlterColorRYB.b);
         AlterMaterial.color = AlterColorRGB;
 
 
@@ -94,7 +94,7 @@ public class AlterSphere : MonoBehaviour
         ResultColorRYB.r = 1 -(AlterColorRYB.r + ComplementaryColorRYB.r);
         ResultColorRYB.g = 1 -(AlterColorRYB.g + ComplementaryColorRYB.g);
         ResultColorRYB.b = 1 -(AlterColorRYB.b + ComplementaryColorRYB.b);
-        ResultColorRGB = _handleColour.ConvertToRGB(ResultColorRYB.r, ResultColorRYB.g, ResultColorRYB.b);
+        ResultColorRGB = _handleColour.RYBToRGB(ResultColorRYB.r, ResultColorRYB.g, ResultColorRYB.b);
         ResultMaterial.color = ResultColorRGB;
     }
 }
