@@ -360,9 +360,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.
+  m_Text: Now that we have learned the basics of the colour wheel and the idea of
+    Warm and Cool colours lets create the colour wheel ourselves! Click the button
+    to begin
 --- !u!222 &233518777
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -556,34 +556,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: fc0ba9e4d3868d74e9ada4261e27ccb0, type: 3}
---- !u!21 &286732814
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Station1Material
-
-    20908'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 51b85a001165dbf4f95c5b3b9943c911, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &292895016
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,9 +646,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.
+  m_Text: Cool Colours are a set of colours that often depict objects or scenes that
+    have a lower tempurature feel. An example of this could be a harsh blizzard over
+    a small mountain town or a rainy day. Just like Warm colours, Cool colours can
+    also be used to represent emotions in a scene or painting. Cool colours often
+    represent a more sad palette of emotions. Examples could be grief, sadness, depression,
+    or despair.
 --- !u!222 &379540505
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1634,6 +1609,34 @@ RectTransform:
   m_AnchoredPosition: {x: 63.556, y: 142}
   m_SizeDelta: {x: 821.3334, y: 137.40198}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!21 &628858371
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Station1Material
+
+    14596'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 51b85a001165dbf4f95c5b3b9943c911, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &726518093 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 900712745666347066, guid: 32f2f14fbd3819a4495d4b8eb916c0dd,
@@ -2055,9 +2058,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.
+  m_Text: Warm Colours are a set of colours that often depict objects or scenes that
+    have a higher tempurature feel. An example of this could be a desert scene or
+    a sunset. Warm colours can also be used to represent the emotions of a scene
+    or painting. Some of these emotions include love, happiness, anger, or lust.
 --- !u!222 &805656579
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2831,9 +2835,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.
+  m_Text: Tertiary Colours are the result of mixing primary and secondary colours.
+    The tertiary colours are RED-ORANGE, ORANGE-YELLOW, YELLOW-GREEN, GREEN-BLUE,
+    BLUE-PURPLE, and PURPLE-RED.
 --- !u!222 &1023770474
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3013,12 +3017,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: text ever since the 1500s, when an unknown printer took a galley of type
-    and scrambled it to make a type specimen book. It has survived not only five
-    centuries, but also the leap into electronic typesetting, remaining essentially
-    unchanged. It was popularised in the 1960s with the release of Letraset sheets
-    containing Lorem Ipsum passages, and more recently with desktop publishing software
-    like Aldus PageMaker including versions of Lorem Ipsum.
+  m_Text: Secondary colours are what you get when you combine an equal amount of
+    two primary colours together. These colours are ORANGE, which comes from Red
+    and Yellow. GREEN, which comes from Yellow, and Blue. And lastly PURPLE which
+    comes from Blue and Red.
 --- !u!222 &1063784412
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3218,7 +3220,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 286732814}
+  - {fileID: 628858371}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3917,14 +3919,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-    when an unknown printer took a galley of type and scrambled it to make a type
-    specimen book. It has survived not only five centuries, but also the leap into
-    electronic typesetting, remaining essentially unchanged. It was popularised in
-    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.
+  m_Text: The basics of all color theory starts with primary colours. The primary
+    colours are RED, YELLOW, and BLUE. The reason why these are the primary colors
+    is because these colors can not be broken down further into other colors.
 --- !u!222 &1300717404
 CanvasRenderer:
   m_ObjectHideFlags: 0
