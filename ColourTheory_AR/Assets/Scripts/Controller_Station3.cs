@@ -58,6 +58,7 @@ public class Controller_Station3 : MonoBehaviour
 
     public GameObject quizObj1, quizObj2, quizObj3;
     public int correctCount, questionGoal;
+    public Text outcomeText;
 
     // Start is called before the first frame update
     void Start()
@@ -129,6 +130,7 @@ public class Controller_Station3 : MonoBehaviour
         flashSpeed = 5;
 
         correctCount = 0;
+        outcomeText.text = correctCount + "/" + questionGoal + " Correct";
 
         StartUI.gameObject.SetActive(true);
         gameUI.gameObject.SetActive(false);
@@ -292,8 +294,10 @@ public class Controller_Station3 : MonoBehaviour
         if (answer == currentQuestion.answer)
         {
             correctCount += 1;
+            outcomeText.text = correctCount + "/" + questionGoal + " Correct";
             if (correctCount >= questionGoal)
             {
+
                 CompleteStep();
                 return;
             }
@@ -301,10 +305,19 @@ public class Controller_Station3 : MonoBehaviour
         }
         else
         {
+            StartCoroutine(tryAgain(1.0f));
             Debug.Log("wrong");
         }
     }
 
+    IEnumerator tryAgain(float waitTime)
+    {
+        outcomeText.text = "Try Again";
+        outcomeText.color = Color.red;
+        yield return new WaitForSeconds(waitTime);
+        outcomeText.text = correctCount + "/" + questionGoal + " Correct";
+        outcomeText.color = Color.white;
+    }
 
 
 
