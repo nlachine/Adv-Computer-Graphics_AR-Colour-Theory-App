@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Controller_Station3 : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class Controller_Station3 : MonoBehaviour
                             // 4 - Tints/Shades/Tones
     int colourWheelIndex = 0; //Indicates which piece of the colour wheel to base the scheme on.
     public Canvas Station3_UI;
-
+    public GameObject gameUI;
     public Button startButton;
     public Button nextButton;
     public Button prevButton;
@@ -50,6 +51,13 @@ public class Controller_Station3 : MonoBehaviour
     public GameObject textBackground;
     public GameObject CompleteUI;
 
+    //Quiz Variables
+    public SchemeQuestion[] questions;
+    private static List<SchemeQuestion> unansweredQuestions;
+    private SchemeQuestion currentQuestion;
+
+    public GameObject quizObj1, quizObj2, quizObj3;
+    public int correctCount, questionGoal;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +75,13 @@ public class Controller_Station3 : MonoBehaviour
 
         //---- Set Materials on Pieces ----//
         _colourWheel.ResetDefaultColours(colourWheelRenderers);
+
+        //---- Set Questions ----//
+        if (unansweredQuestions == null || unansweredQuestions.Count == 0)
+        {
+            unansweredQuestions = questions.ToList<SchemeQuestion>();
+        }
+        GetCurrentQuestion();
 
     }
 
@@ -94,7 +109,10 @@ public class Controller_Station3 : MonoBehaviour
             case 3: //Analgous Step
                 AnalogousStep();
                 break;
-            case 4: //Learning Module Complete
+            case 4: //Game Step
+                GameStep();
+                break;
+            case 5: //Learning Module Complete
                 CompleteStep();
                 break;
             default: //Otherwise
@@ -110,7 +128,13 @@ public class Controller_Station3 : MonoBehaviour
         flashOffset = 1f;
         flashSpeed = 5;
 
+        correctCount = 0;
+
         StartUI.gameObject.SetActive(true);
+        gameUI.gameObject.SetActive(false);
+        quizObj1.gameObject.SetActive(false);
+        quizObj2.gameObject.SetActive(false);
+        quizObj3.gameObject.SetActive(false);
 
         startButton.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(false);
@@ -143,7 +167,7 @@ public class Controller_Station3 : MonoBehaviour
         startButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(true);
-        headerText.text = "Monochromatic";
+        headerText.text = "MONOCHROMATIC";
 
         switchButton.gameObject.SetActive(false);
         universalSlider.gameObject.SetActive(true);
@@ -166,7 +190,7 @@ public class Controller_Station3 : MonoBehaviour
         startButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(true);
-        headerText.text = "Complimentary";
+        headerText.text = "COMPLIMENTARY";
 
         switchButton.gameObject.SetActive(true);
         universalSlider.gameObject.SetActive(false);
@@ -187,7 +211,7 @@ public class Controller_Station3 : MonoBehaviour
         startButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(true);
-        headerText.text = "Complimentary";
+        headerText.text = "ANALOGOUS";
 
         switchButton.gameObject.SetActive(true);
         universalSlider.gameObject.SetActive(false);
@@ -200,14 +224,43 @@ public class Controller_Station3 : MonoBehaviour
 
         CompleteUI.gameObject.SetActive(false);
     }
+
+    public void GameStep()
+    {
+        StartUI.gameObject.SetActive(false);
+        gameUI.gameObject.SetActive(true);
+        quizObj1.gameObject.SetActive(true);
+        quizObj2.gameObject.SetActive(true);
+        quizObj3.gameObject.SetActive(true);
+        _colourWheel.getColourWheel().SetActive(false);
+
+        startButton.gameObject.SetActive(false);
+        prevButton.gameObject.SetActive(false);
+        nextButton.gameObject.SetActive(false);
+        headerText.text = "QUIZ";
+
+        switchButton.gameObject.SetActive(false);
+        universalSlider.gameObject.SetActive(false);
+
+        headerTextBackground.SetActive(true);
+        textBackground.gameObject.SetActive(false);
+        monochromaticDescription.gameObject.SetActive(false);
+        complimentaryDescription.gameObject.SetActive(false);
+        analogousDescription.gameObject.SetActive(true);
+
+        CompleteUI.gameObject.SetActive(false);
+    }
     public void CompleteStep()
     {
         StartUI.gameObject.SetActive(false);
+        gameUI.gameObject.SetActive(false);
+        quizObj1.gameObject.SetActive(false);
+        quizObj2.gameObject.SetActive(false);
+        quizObj3.gameObject.SetActive(false);
 
         startButton.gameObject.SetActive(false);
-        prevButton.gameObject.SetActive(true);
+        prevButton.gameObject.SetActive(false);
         nextButton.gameObject.SetActive(false);
-        headerText.text = "Analogous";
 
         switchButton.gameObject.SetActive(false);
         universalSlider.gameObject.SetActive(false);
@@ -220,6 +273,41 @@ public class Controller_Station3 : MonoBehaviour
 
         CompleteUI.gameObject.SetActive(true);
     }
+
+
+    void GetCurrentQuestion()
+    {
+        int rand = Random.Range(0, unansweredQuestions.Count);
+        currentQuestion = unansweredQuestions[rand];
+
+        quizObj1.GetComponent<MeshRenderer>().material.color = currentQuestion.col1;
+        quizObj2.GetComponent<MeshRenderer>().material.color = currentQuestion.col2;
+        quizObj3.GetComponent<MeshRenderer>().material.color = currentQuestion.col3;
+
+        unansweredQuestions.RemoveAt(rand);
+    }
+
+    public void checkAnswer(string answer)
+    {
+        if (answer == currentQuestion.answer)
+        {
+            correctCount += 1;
+            if (correctCount >= questionGoal)
+            {
+                CompleteStep();
+                return;
+            }
+            GetCurrentQuestion();
+        }
+        else
+        {
+            Debug.Log("wrong");
+        }
+    }
+
+
+
+
 
     void MonochromaticChanged()
     {
