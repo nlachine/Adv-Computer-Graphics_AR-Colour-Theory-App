@@ -276,7 +276,6 @@ public class Controller_Station3 : MonoBehaviour
         CompleteUI.gameObject.SetActive(true);
     }
 
-
     void GetCurrentQuestion()
     {
         int rand = Random.Range(0, unansweredQuestions.Count);
@@ -294,7 +293,7 @@ public class Controller_Station3 : MonoBehaviour
         if (answer == currentQuestion.answer)
         {
             correctCount += 1;
-            outcomeText.text = correctCount + "/" + questionGoal + " Correct";
+            StartCoroutine(correct(1.0f));
             if (correctCount >= questionGoal)
             {
 
@@ -318,8 +317,14 @@ public class Controller_Station3 : MonoBehaviour
         outcomeText.text = correctCount + "/" + questionGoal + " Correct";
         outcomeText.color = Color.white;
     }
-
-
+    IEnumerator correct(float waitTime)
+    {
+        outcomeText.text = "Correct";
+        outcomeText.color = Color.green;
+        yield return new WaitForSeconds(waitTime);
+        outcomeText.text = correctCount + "/" + questionGoal + " Correct";
+        outcomeText.color = Color.white;
+    }
 
 
     void MonochromaticChanged()
