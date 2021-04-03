@@ -157,6 +157,7 @@ public class Controller_Station2 : MonoBehaviour
 
     public void HueStep()
     {
+        HueChanged();
         StartUI.gameObject.SetActive(false);
 
         startButton.gameObject.SetActive(false);
@@ -165,7 +166,9 @@ public class Controller_Station2 : MonoBehaviour
         headerText.text = "HUE";
 
         intensitySlider.gameObject.SetActive(false);
-        universalSlider.gameObject.SetActive(false);
+        universalSlider.gameObject.SetActive(true);
+        universalSlider.transform.Find("TextLeft").GetComponent<Text>().text = "";
+        universalSlider.transform.Find("TextRight").GetComponent<Text>().text = "";
 
         headerTextBackground.SetActive(true);
         textBackground.gameObject.SetActive(true);
@@ -180,6 +183,7 @@ public class Controller_Station2 : MonoBehaviour
     }
     public void SaturationStep()
     {
+        SaturationChanged();
         StartUI.gameObject.SetActive(false);
 
         startButton.gameObject.SetActive(false);
@@ -189,6 +193,8 @@ public class Controller_Station2 : MonoBehaviour
 
         intensitySlider.gameObject.SetActive(false);
         universalSlider.gameObject.SetActive(true);
+        universalSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Low";
+        universalSlider.transform.Find("TextRight").GetComponent<Text>().text = "High";
 
         headerTextBackground.SetActive(true);
         textBackground.gameObject.SetActive(true);
@@ -203,6 +209,7 @@ public class Controller_Station2 : MonoBehaviour
     }
     public void ValueStep()
     {
+        ValueChanged();
         StartUI.gameObject.SetActive(false);
 
         startButton.gameObject.SetActive(false);
@@ -212,6 +219,8 @@ public class Controller_Station2 : MonoBehaviour
 
         intensitySlider.gameObject.SetActive(false);
         universalSlider.gameObject.SetActive(true);
+        universalSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Low";
+        universalSlider.transform.Find("TextRight").GetComponent<Text>().text = "High";
 
         headerTextBackground.SetActive(true);
         textBackground.gameObject.SetActive(true);
@@ -226,6 +235,7 @@ public class Controller_Station2 : MonoBehaviour
     }
     public void TintStep()
     {
+        TintChanged();
         StartUI.gameObject.SetActive(false);
 
         startButton.gameObject.SetActive(false);
@@ -235,6 +245,8 @@ public class Controller_Station2 : MonoBehaviour
 
         intensitySlider.gameObject.SetActive(false);
         universalSlider.gameObject.SetActive(true);
+        universalSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Less";
+        universalSlider.transform.Find("TextRight").GetComponent<Text>().text = "More";
 
         headerTextBackground.SetActive(true);
         textBackground.gameObject.SetActive(true);
@@ -249,6 +261,7 @@ public class Controller_Station2 : MonoBehaviour
     }
     public void ToneStep()
     {
+        ToneChanged();
         StartUI.gameObject.SetActive(false);
 
         startButton.gameObject.SetActive(false);
@@ -258,6 +271,8 @@ public class Controller_Station2 : MonoBehaviour
 
         intensitySlider.gameObject.SetActive(true);
         universalSlider.gameObject.SetActive(true);
+        universalSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Less";
+        universalSlider.transform.Find("TextRight").GetComponent<Text>().text = "More";
 
         headerTextBackground.SetActive(true);
         textBackground.gameObject.SetActive(true);
@@ -272,6 +287,7 @@ public class Controller_Station2 : MonoBehaviour
     }
     public void ShadeStep()
     {
+        ShadeChanged();
         StartUI.gameObject.SetActive(false);
 
         startButton.gameObject.SetActive(false);
@@ -281,6 +297,8 @@ public class Controller_Station2 : MonoBehaviour
 
         intensitySlider.gameObject.SetActive(false);
         universalSlider.gameObject.SetActive(true);
+        universalSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Less";
+        universalSlider.transform.Find("TextRight").GetComponent<Text>().text = "More";
 
         headerTextBackground.SetActive(true);
         textBackground.gameObject.SetActive(true);
@@ -328,6 +346,13 @@ public class Controller_Station2 : MonoBehaviour
         CompleteUI.gameObject.SetActive(true);
     }
 
+    void HueChanged()
+    {
+        for(int i = 0; i < colourWheelRenderers.Count; i++)
+        {
+            colourWheelRenderers[i].material.color = Color.HSVToRGB(getUniversalValue(), 1.0f, 1.0f);
+        }
+    }
     void SaturationChanged()
     {
         for(int i = 0; i < colourWheelRenderers.Count; i++)
@@ -373,6 +398,9 @@ public class Controller_Station2 : MonoBehaviour
     {
         switch (currentStep)
         {
+            case 1: //Hue Step
+                HueChanged();
+                break;
             case 2: //Saturation Step
                 SaturationChanged();
                 break;

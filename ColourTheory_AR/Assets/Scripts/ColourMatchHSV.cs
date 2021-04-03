@@ -32,6 +32,12 @@ public class ColourMatchHSV : MonoBehaviour
     Material matchObjMat;
     Material alterObjMat;
 
+
+    //UI Properties
+    public bool helperOn = false;
+    public GameObject match_img;
+    public GameObject tryAgain_img;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +55,10 @@ public class ColourMatchHSV : MonoBehaviour
 
         newMatch();
     }
+
     public void OnSliderChange()
     {
-        alterObjMat.color = Color.HSVToRGB(hueSlider.value, satSlider.value, 1-valSlider.value);
+        alterObjMat.color = Color.HSVToRGB(hueSlider.value, satSlider.value, 1 - valSlider.value);
 
         hueCB.normalColor = Color.HSVToRGB(hueSlider.value, 1.0f, 1.0f);
         hueCB.selectedColor = Color.HSVToRGB(hueSlider.value, 1.0f, 1.0f);
@@ -66,42 +73,9 @@ public class ColourMatchHSV : MonoBehaviour
         satSlider.colors = satCB;
     }
 
-    public void CheckMatch()
+    public void toggleHelper()
     {
-        //calculate the difference between each value of match sphere and alter sphere
-        float mH, mS, mV;
-        float aH, aS, aV;
-
-        Color.RGBToHSV(matchObjMat.color, out mH, out mS, out mV);
-        Color.RGBToHSV(alterObjMat.color, out aH, out aS, out aV);
-
-        //calculate the difference between each value of match sphere and alter sphere
-        float h_diff = mH - aH;
-        float s_diff = mS - aS;
-        float v_diff = mV - aV;
-        //Debug.Log("mh:" + mH + " ms:" + mS + " mV:" + mV);
-        //Debug.Log("ah:" + aH + " as:" + aS + " aV:" + aV);
-
-        if (h_diff >= -tolerance && h_diff <= tolerance)
-            h_correct = true;
-        if (s_diff >= -tolerance && s_diff <= tolerance)
-            s_correct = true;
-        if (v_diff >= -tolerance && v_diff <= tolerance)
-            v_correct = true;
-
-        if (h_correct && s_correct && v_correct)
-        {
-            correctCount += 1;
-            if (correctCount == gameOverTotal)
-            {
-                CompleteFunction.Invoke();
-                return;
-            }
-            newMatch();
-        }
-
-
-
+        helperOn = !helperOn;
     }
 
     void newMatch()
@@ -116,9 +90,108 @@ public class ColourMatchHSV : MonoBehaviour
         valSlider.value = V;
     }
 
-    // Update is called once per frame
-    void Update()
+    //check if all the values are true and display a graphic to indicate right or wrong.
+    public void resetCheck()
     {
-        
+        //reset sliders and booleans
+        h_correct = false;
+        s_correct = false;
+        v_correct = false;
+        hueSlider.transform.parent.Find("Good").gameObject.SetActive(false);
+        hueSlider.transform.parent.Find("Close").gameObject.SetActive(false);
+        hueSlider.transform.parent.Find("Wrong").gameObject.SetActive(false);
+        satSlider.transform.parent.Find("Good").gameObject.SetActive(false);
+        satSlider.transform.parent.Find("Close").gameObject.SetActive(false);
+        satSlider.transform.parent.Find("Wrong").gameObject.SetActive(false);
+        valSlider.transform.parent.Find("Good").gameObject.SetActive(false);
+        valSlider.transform.parent.Find("Close").gameObject.SetActive(false);
+        valSlider.transform.parent.Find("Wrong").gameObject.SetActive(false);
+    }
+
+    public void checkMatch()
+    {
+        StartCoroutine(handleOutcome(1.0f));
+    }
+
+
+    IEnumerator handleOutcome(float waitTime)
+    {
+        resetCheck();
+
+        //Log RGB values of each sphere
+        Debug.Log("AS: " + alterObjMat);
+        Debug.Log("MS: " + matchObjMat);
+
+        //calculate the difference between each value of match sphere and alter sphere
+        float mH, mS, mV;
+        float aH, aS, aV;
+
+        Color.RGBToHSV(matchObjMat.color, out mH, out mS, out mV);
+        Color.RGBToHSV(alterObjMat.color, out aH, out aS, out aV);
+
+        //calculate the difference between each value of match sphere and alter sphere
+        float h_diff = mH - aH;
+        float s_diff = mS - aS;
+        float v_diff = mV - aV;
+        //Debug.Log("mh:" + mH + " ms:" + mS + " mV:" + mV);
+        //Debug.Log("ah:" + aH + " as:" + aS + " aV:" + aV);
+
+        if (helperOn)
+        {
+            //Show Red Indicator
+            if (h_diff <= tolerance && h_diff >= -tolerance)
+                hueSlider.transform.parent.Find("Good").gameObject.SetActive(true);
+            else if (h_diff <= tolerance * 2 && h_diff >= -tolerance * 2)
+                hueSlider.transform.parent.Find("Close").gameObject.SetActive(true);
+            else
+                hueSlider.transform.parent.Find("Wrong").gameObject.SetActive(true);
+
+
+            //Show Yellow Indicator
+            if (s_diff <= tolerance && s_diff >= -tolerance)
+                satSlider.transform.parent.Find("Good").gameObject.SetActive(true);
+            else if (s_diff <= tolerance * 2 && s_diff >= -tolerance * 2)
+                satSlider.transform.parent.Find("Close").gameObject.SetActive(true);
+            else
+                satSlider.transform.parent.Find("Wrong").gameObject.SetActive(true);
+
+            //Show Blue Indicator
+            if (v_diff <= tolerance && v_diff >= -tolerance)
+                valSlider.transform.parent.Find("Good").gameObject.SetActive(true);
+            else if (v_diff <= tolerance * 2 && v_diff >= -tolerance * 2)
+                valSlider.transform.parent.Find("Close").gameObject.SetActive(true);
+            else
+                valSlider.transform.parent.Find("Wrong").gameObject.SetActive(true);
+        }
+
+        if (h_diff >= -tolerance && h_diff <= tolerance)
+            h_correct = true;
+        if (s_diff >= -tolerance && s_diff <= tolerance)
+            s_correct = true;
+        if (v_diff >= -tolerance && v_diff <= tolerance)
+            v_correct = true;
+
+        if (h_correct && s_correct && v_correct)
+        {
+            correctCount += 1;
+            if (correctCount == gameOverTotal)
+            {
+                match_img.SetActive(true);
+                yield return new WaitForSeconds(waitTime);
+                match_img.SetActive(false);
+                CompleteFunction.Invoke();
+    
+            }
+            resetCheck();
+            newMatch();
+        }
+        else
+        {
+            tryAgain_img.SetActive(true);
+
+            yield return new WaitForSeconds(waitTime);
+
+            tryAgain_img.SetActive(false);
+        }
     }
 }

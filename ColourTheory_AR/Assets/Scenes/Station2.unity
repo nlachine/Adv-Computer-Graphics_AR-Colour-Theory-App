@@ -846,9 +846,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.
+  m_Text: 'A <b>tone</b> occurs when you add <b>grey</b> to a colour. The colour
+    will appear <b>dull</b>. A tone is a combination of a tint and a shade.
+
+
+    Use
+    the sliders to adjust the amount and darkness of grey added to the hues on the
+    colour wheel.'
 --- !u!222 &119060083
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1769,6 +1773,9 @@ MonoBehaviour:
   tolerance: 0.1
   matchObj: {fileID: 1095286690}
   alterObj: {fileID: 570808346}
+  helperOn: 0
+  match_img: {fileID: 105828765}
+  tryAgain_img: {fileID: 429972172}
 --- !u!114 &570808348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2004,9 +2011,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.
+  m_Text: 'A <b>tint</b> occurs when you add <b>white</b> to a colour. The colour
+    will appear <b>lighter</b>.
+
+
+    Use the slider to adjust the amount of white
+    added to the hues on the colour wheel.'
 --- !u!222 &663443413
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2481,6 +2491,34 @@ RectTransform:
   m_AnchoredPosition: {x: 51, y: 238}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!21 &763867777
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Station2Material
+
+    36310'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: a34cada32e5a2d747832f7bdc9b65f0c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &778507763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,12 +3635,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: text ever since the 1500s, when an unknown printer took a galley of type
-    and scrambled it to make a type specimen book. It has survived not only five
-    centuries, but also the leap into electronic typesetting, remaining essentially
-    unchanged. It was popularised in the 1960s with the release of Letraset sheets
-    containing Lorem Ipsum passages, and more recently with desktop publishing software
-    like Aldus PageMaker including versions of Lorem Ipsum.
+  m_Text: '<b>Saturation</b> is the <b>intensity</b> of a colour. As you lower the
+    intensity of the hue, the colour becomes more and more grey. A greyscale image
+    is an image where all the saturation is removed from the colours.
+
+
+    Use the
+    slider to lower the intensity or saturation of the colour.'
 --- !u!222 &991162998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3749,7 +3788,7 @@ GameObject:
   - component: {fileID: 1057599691}
   - component: {fileID: 1057599690}
   m_Layer: 5
-  m_Name: Text High
+  m_Name: TextRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3973,7 +4012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1170625100
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4041,7 +4080,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 570808347}
         m_MethodName: toggleHelper
         m_Mode: 1
         m_Arguments:
@@ -4651,9 +4690,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.
+  m_Text: '<b>Value</b> refers to the <b>lightness</b> or <b>brightness</b> of a
+    colour. If a colour has a high value, it appears brighter or more pure. The lower
+    the value, the darker the colour.
+
+
+
+    Use the slider to adjust the value of
+    this colour.'
 --- !u!222 &1409076092
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5354,34 +5398,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1708348444
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Station2Material
-
-    38208'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a34cada32e5a2d747832f7bdc9b65f0c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1718817769
 GameObject:
   m_ObjectHideFlags: 0
@@ -5399,7 +5415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1718817770
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5451,14 +5467,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-    when an unknown printer took a galley of type and scrambled it to make a type
-    specimen book. It has survived not only five centuries, but also the leap into
-    electronic typesetting, remaining essentially unchanged. It was popularised in
-    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.
+  m_Text: '<b>Hue</b> refers to the <b>pure</b> colour used before any changes are
+    made. It is the base color to start with such as a red, blue, yellow, green,
+    purple, or orange. Hues can be changed to make a darker or lighter colour.
+
+
+    Use
+    the slider to see all of the different hues.'
 --- !u!222 &1718817772
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5860,7 +5875,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1708348444}
+  - {fileID: 763867777}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6390,7 +6405,7 @@ GameObject:
   - component: {fileID: 1897839491}
   - component: {fileID: 1897839490}
   m_Layer: 5
-  m_Name: TextLow
+  m_Name: TextLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6720,9 +6735,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum.
+  m_Text: 'A <b>shade</b> occurs when you add <b>black</b> to a colour. The colour
+    will appear <b>darker</b>.
+
+
+    Use the sliders to adjust the amount black 
+    added to the hues on the colour wheel.'
 --- !u!222 &2013046079
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6814,7 +6832,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 570808347}
-        m_MethodName: CheckMatch
+        m_MethodName: checkMatch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
