@@ -47,6 +47,7 @@ public class Controller_Station3 : MonoBehaviour
     public Text monochromaticDescription;
     public Text complimentaryDescription;
     public Text analogousDescription;
+    public Text triadicDescription;
     public GameObject StartUI;
     public GameObject textBackground;
     public GameObject CompleteUI;
@@ -110,10 +111,13 @@ public class Controller_Station3 : MonoBehaviour
             case 3: //Analgous Step
                 AnalogousStep();
                 break;
-            case 4: //Game Step
+            case 4: //Triadic Step
+                TriadicStep();
+                break;
+            case 5: //Game Step
                 GameStep();
                 break;
-            case 5: //Learning Module Complete
+            case 6: //Learning Module Complete
                 CompleteStep();
                 break;
             default: //Otherwise
@@ -152,6 +156,8 @@ public class Controller_Station3 : MonoBehaviour
         monochromaticDescription.gameObject.SetActive(false);
         complimentaryDescription.gameObject.SetActive(false);
         analogousDescription.gameObject.SetActive(false);
+        triadicDescription.gameObject.SetActive(false);
+
 
         CompleteUI.gameObject.SetActive(false);
     }
@@ -181,6 +187,8 @@ public class Controller_Station3 : MonoBehaviour
         monochromaticDescription.gameObject.SetActive(true);
         complimentaryDescription.gameObject.SetActive(false);
         analogousDescription.gameObject.SetActive(false);
+        triadicDescription.gameObject.SetActive(false);
+
 
         CompleteUI.gameObject.SetActive(false);
     }
@@ -202,6 +210,8 @@ public class Controller_Station3 : MonoBehaviour
         monochromaticDescription.gameObject.SetActive(false);
         complimentaryDescription.gameObject.SetActive(true);
         analogousDescription.gameObject.SetActive(false);
+        triadicDescription.gameObject.SetActive(false);
+
 
         CompleteUI.gameObject.SetActive(false);
     }
@@ -223,10 +233,32 @@ public class Controller_Station3 : MonoBehaviour
         monochromaticDescription.gameObject.SetActive(false);
         complimentaryDescription.gameObject.SetActive(false);
         analogousDescription.gameObject.SetActive(true);
+        triadicDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
     }
+    public void TriadicStep()
+    {
+        switchScheme();
+        StartUI.gameObject.SetActive(false);
 
+        startButton.gameObject.SetActive(false);
+        prevButton.gameObject.SetActive(true);
+        nextButton.gameObject.SetActive(true);
+        headerText.text = "TRIADIC";
+
+        switchButton.gameObject.SetActive(true);
+        universalSlider.gameObject.SetActive(false);
+
+        headerTextBackground.SetActive(true);
+        textBackground.gameObject.SetActive(true);
+        monochromaticDescription.gameObject.SetActive(false);
+        complimentaryDescription.gameObject.SetActive(false);
+        analogousDescription.gameObject.SetActive(false);
+        triadicDescription.gameObject.SetActive(true);
+
+        CompleteUI.gameObject.SetActive(false);
+    }
     public void GameStep()
     {
         StartUI.gameObject.SetActive(false);
@@ -249,6 +281,8 @@ public class Controller_Station3 : MonoBehaviour
         monochromaticDescription.gameObject.SetActive(false);
         complimentaryDescription.gameObject.SetActive(false);
         analogousDescription.gameObject.SetActive(true);
+        triadicDescription.gameObject.SetActive(false);
+
 
         CompleteUI.gameObject.SetActive(false);
     }
@@ -272,6 +306,7 @@ public class Controller_Station3 : MonoBehaviour
         monochromaticDescription.gameObject.SetActive(false);
         complimentaryDescription.gameObject.SetActive(false);
         analogousDescription.gameObject.SetActive(false);
+        triadicDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(true);
     }
@@ -357,6 +392,18 @@ public class Controller_Station3 : MonoBehaviour
             after -= colourWheelRenderers.Count;
         _materialAnimator.FlashingAlpha(colourWheelRenderers[after], flashAmplitude, flashSpeed, flashOffset);
     }
+    void TriadicChanged()
+    {
+        int before = colourWheelIndex - 4;
+        if (before < 0)
+            before += colourWheelRenderers.Count;
+        _materialAnimator.FlashingAlpha(colourWheelRenderers[before], flashAmplitude, flashSpeed, flashOffset);
+        _materialAnimator.FlashingAlpha(colourWheelRenderers[colourWheelIndex], flashAmplitude, flashSpeed, flashOffset);
+        int after = colourWheelIndex + 4;
+        if (after >= colourWheelRenderers.Count)
+            after -= colourWheelRenderers.Count;
+        _materialAnimator.FlashingAlpha(colourWheelRenderers[after], flashAmplitude, flashSpeed, flashOffset);
+    }
 
     public void switchScheme() {
         colourWheelIndex += 1;
@@ -386,6 +433,9 @@ public class Controller_Station3 : MonoBehaviour
                 break;
             case 3: //Analogous Step
                 AnalogousChanged();
+                break;
+            case 4:
+                TriadicChanged();
                 break;
             default: //Otherwise
                 break;
