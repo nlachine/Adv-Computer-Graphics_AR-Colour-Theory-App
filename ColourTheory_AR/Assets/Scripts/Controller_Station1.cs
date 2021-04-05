@@ -145,6 +145,8 @@ public class Controller_Station1 : MonoBehaviour
 
         //Station 1 Specific
         MinigameObjectHolder.SetActive(false);
+        textBackground.transform.Find("btnGame").gameObject.SetActive(false);
+
     }
 
     float getUniversalValue()
@@ -336,6 +338,8 @@ public class Controller_Station1 : MonoBehaviour
 
         //Station 1 Specific
         MinigameObjectHolder.SetActive(true);
+        textBackground.transform.Find("btnGame").gameObject.SetActive(true);
+
 
         for (int i = 0; i < colourWheelRenderers.Count; i++)
         {
@@ -371,6 +375,12 @@ public class Controller_Station1 : MonoBehaviour
         shadeDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(true);
+    }
+
+    public void startGame()
+    {
+        textBackground.gameObject.SetActive(false);
+        textBackground.transform.Find("btnGame").gameObject.SetActive(false);
     }
 
     void SaturationChanged()
@@ -414,33 +424,48 @@ public class Controller_Station1 : MonoBehaviour
         }
     }
 
-    public void OnSliderChange()
+
+    void Update()
     {
+
         switch (currentStep)
         {
-            case 2: //Saturation Step
-                SaturationChanged();
+            case 1: //Primary Step
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[0], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[4], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[8], flashAmplitude, flashSpeed, flashOffset);
                 break;
-            case 3: //Value Step
-                ValueChanged();
+            case 2: //Secondary Step
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[2], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[6], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[10], flashAmplitude, flashSpeed, flashOffset);
+                break;
+            case 3: //Tertiary Step
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[1], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[3], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[5], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[7], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[9], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[11], flashAmplitude, flashSpeed, flashOffset);
                 break;
             case 4: //Tint Step
-                TintChanged();
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[0], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[1], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[2], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[3], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[4], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[5], flashAmplitude, flashSpeed, flashOffset);
                 break;
             case 5: //Tone Step
-                ToneChanged();
-                break;
-            case 6: //Shade Step
-                ShadeChanged();
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[6], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[7], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[8], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[9], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[10], flashAmplitude, flashSpeed, flashOffset);
+                _materialAnimator.FlashingAlpha(colourWheelRenderers[11], flashAmplitude, flashSpeed, flashOffset);
                 break;
             default: //Otherwise
                 break;
         }
-    }
-
-    void Update()
-    {
-        //---- Example on flashing colour. ----//
-        //_materialAnimator.FlashingAlpha(redRenderer, flashAmplitude, flashSpeed, flashOffset);
     }
 }
