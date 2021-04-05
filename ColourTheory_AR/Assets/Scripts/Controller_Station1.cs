@@ -47,7 +47,7 @@ public class Controller_Station1 : MonoBehaviour
     public Text TertiaryColourDescription;
     public Text WarmColourDescription;
     public Text CoolColourDescription;
-    public Text shadeDescription;
+    public Text gameDescription;
     public GameObject StartUI;
     public GameObject textBackground;
     public GameObject CompleteUI;
@@ -139,7 +139,8 @@ public class Controller_Station1 : MonoBehaviour
         TertiaryColourDescription.gameObject.SetActive(false);
         WarmColourDescription.gameObject.SetActive(false);
         CoolColourDescription.gameObject.SetActive(false);
-        shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
+        textBackground.transform.Find("btnGame").gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
 
@@ -178,7 +179,7 @@ public class Controller_Station1 : MonoBehaviour
         TertiaryColourDescription.gameObject.SetActive(false);
         WarmColourDescription.gameObject.SetActive(false);
         CoolColourDescription.gameObject.SetActive(false);
-        shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
 
@@ -210,7 +211,7 @@ public class Controller_Station1 : MonoBehaviour
         TertiaryColourDescription.gameObject.SetActive(false);
         WarmColourDescription.gameObject.SetActive(false);
         CoolColourDescription.gameObject.SetActive(false);
-        shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
 
@@ -242,7 +243,7 @@ public class Controller_Station1 : MonoBehaviour
         TertiaryColourDescription.gameObject.SetActive(true);
         WarmColourDescription.gameObject.SetActive(false);
         CoolColourDescription.gameObject.SetActive(false);
-        shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
 
@@ -268,7 +269,7 @@ public class Controller_Station1 : MonoBehaviour
         TertiaryColourDescription.gameObject.SetActive(false);
         WarmColourDescription.gameObject.SetActive(true);
         CoolColourDescription.gameObject.SetActive(false);
-        shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
 
@@ -300,7 +301,8 @@ public class Controller_Station1 : MonoBehaviour
         TertiaryColourDescription.gameObject.SetActive(false);
         WarmColourDescription.gameObject.SetActive(false);
         CoolColourDescription.gameObject.SetActive(true);
-        shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
+        textBackground.transform.Find("btnGame").gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
 
@@ -332,7 +334,8 @@ public class Controller_Station1 : MonoBehaviour
         TertiaryColourDescription.gameObject.SetActive(false);
         WarmColourDescription.gameObject.SetActive(false);
         CoolColourDescription.gameObject.SetActive(false);
-        shadeDescription.gameObject.SetActive(true);
+        gameDescription.gameObject.SetActive(true);
+        textBackground.transform.Find("btnGame").gameObject.SetActive(true);
 
         CompleteUI.gameObject.SetActive(false);
 
@@ -372,7 +375,7 @@ public class Controller_Station1 : MonoBehaviour
         TertiaryColourDescription.gameObject.SetActive(false);
         WarmColourDescription.gameObject.SetActive(false);
         CoolColourDescription.gameObject.SetActive(false);
-        shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(true);
     }

@@ -49,10 +49,10 @@ public class Controller_Station2 : MonoBehaviour
     public Text tintDescription;
     public Text toneDescription;
     public Text shadeDescription;
+    public Text gameDescription;
     public GameObject StartUI;
     public GameObject textBackground;
     public GameObject CompleteUI;
-
 
     // Start is called before the first frame update
     void Start()
@@ -141,6 +141,8 @@ public class Controller_Station2 : MonoBehaviour
         tintDescription.gameObject.SetActive(false);
         toneDescription.gameObject.SetActive(false);
         shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
+        textBackground.transform.Find("btnGame").gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
     }
@@ -154,6 +156,11 @@ public class Controller_Station2 : MonoBehaviour
         return intensitySlider.value;
     }
 
+    public void startGame()
+    {
+        textBackground.gameObject.SetActive(false);
+        textBackground.transform.Find("btnGame").gameObject.SetActive(false);
+    }
 
     public void HueStep()
     {
@@ -178,6 +185,7 @@ public class Controller_Station2 : MonoBehaviour
         tintDescription.gameObject.SetActive(false);
         toneDescription.gameObject.SetActive(false);
         shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
     }
@@ -230,6 +238,7 @@ public class Controller_Station2 : MonoBehaviour
         tintDescription.gameObject.SetActive(false);
         toneDescription.gameObject.SetActive(false);
         shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
     }
@@ -256,6 +265,7 @@ public class Controller_Station2 : MonoBehaviour
         tintDescription.gameObject.SetActive(true);
         toneDescription.gameObject.SetActive(false);
         shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
     }
@@ -282,6 +292,7 @@ public class Controller_Station2 : MonoBehaviour
         tintDescription.gameObject.SetActive(false);
         toneDescription.gameObject.SetActive(true);
         shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
 
         CompleteUI.gameObject.SetActive(false);
     }
@@ -308,20 +319,41 @@ public class Controller_Station2 : MonoBehaviour
         tintDescription.gameObject.SetActive(false);
         toneDescription.gameObject.SetActive(false);
         shadeDescription.gameObject.SetActive(true);
-
+        gameDescription.gameObject.SetActive(false);
         CompleteUI.gameObject.SetActive(false);
     }
 
     public void GameStep()
     {
         _colourWheel.getColourWheel().gameObject.SetActive(false);
-        Station2_UI.gameObject.SetActive(false);
+        gameUI.gameObject.SetActive(false);
+
+        StartUI.gameObject.SetActive(false);
+
+        startButton.gameObject.SetActive(false);
+        prevButton.gameObject.SetActive(false);
+        nextButton.gameObject.SetActive(false);
+
+        intensitySlider.gameObject.SetActive(false);
+        universalSlider.gameObject.SetActive(false);
+
+        headerTextBackground.SetActive(false);
+        textBackground.gameObject.SetActive(true);
+        hueDescription.gameObject.SetActive(false);
+        saturationDescription.gameObject.SetActive(false);
+        valueDescription.gameObject.SetActive(false);
+        tintDescription.gameObject.SetActive(false);
+        toneDescription.gameObject.SetActive(false);
+        shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(true);
+        textBackground.transform.Find("btnGame").gameObject.SetActive(true);
+
+        CompleteUI.gameObject.SetActive(false);
         gameUI.gameObject.SetActive(true);
     }
 
     public void CompleteStep()
     {
-        Station2_UI.gameObject.SetActive(true);
         gameUI.gameObject.SetActive(false);
 
         StartUI.gameObject.SetActive(false);
@@ -342,6 +374,8 @@ public class Controller_Station2 : MonoBehaviour
         tintDescription.gameObject.SetActive(false);
         toneDescription.gameObject.SetActive(false);
         shadeDescription.gameObject.SetActive(false);
+        gameDescription.gameObject.SetActive(false);
+        textBackground.transform.Find("btnGame").gameObject.SetActive(true);
 
         CompleteUI.gameObject.SetActive(true);
     }
