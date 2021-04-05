@@ -57,6 +57,7 @@ public class Controller_Station1 : MonoBehaviour
     public GameObject MinigameObjectHolder;
     public List<GameObject> MinigameObjects;
 
+    
     // Start is called before the first frame update
     void Start()
     {
