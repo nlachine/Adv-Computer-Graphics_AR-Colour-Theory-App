@@ -48,6 +48,17 @@ public class HandleColour : MonoBehaviour
         return outputColour;
     }
 
+    public Color CMYKtoRBG(float _c, float _m, float _y, float _k)
+    {
+        float r = 1.0f * (1.0f - _c) * (1.0f - _k);
+        float g = 1.0f * (1.0f - _m) * (1.0f - _k);
+        float b = 1.0f * (1.0f - _y) * (1.0f - _k);
+
+        Color outputColor = new Color(r, g, b);
+
+        return outputColor;
+    }
+
     public Color RandomizeRGB()
     {
         float r_rand = Random.Range(0.0f,1.0f);
