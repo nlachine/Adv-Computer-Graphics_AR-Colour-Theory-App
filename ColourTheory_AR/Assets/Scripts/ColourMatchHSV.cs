@@ -174,13 +174,12 @@ public class ColourMatchHSV : MonoBehaviour
         if (h_correct && s_correct && v_correct)
         {
             correctCount += 1;
+            match_img.SetActive(true);
+            yield return new WaitForSeconds(waitTime);
+            match_img.SetActive(false);
             if (correctCount == gameOverTotal)
             {
-                match_img.SetActive(true);
-                yield return new WaitForSeconds(waitTime);
-                match_img.SetActive(false);
                 CompleteFunction.Invoke();
-    
             }
             resetCheck();
             newMatch();

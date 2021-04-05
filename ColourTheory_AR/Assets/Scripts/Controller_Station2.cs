@@ -119,7 +119,7 @@ public class Controller_Station2 : MonoBehaviour
 
     void setDefaults()
     {
-        currentStep = 1;
+        currentStep = 0;
         flashAmplitude = 0.5f;
         flashOffset = 1f;
         flashSpeed = 5;

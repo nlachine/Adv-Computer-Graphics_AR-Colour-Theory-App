@@ -29,7 +29,7 @@ public class Controller_Station3 : MonoBehaviour
 
 
     //---- Variables ----//
-    int currentStep = 1;    // Indicates which step they are one
+    int currentStep = 0;    // Indicates which step they are one
                             // 1 - Hue
                             // 2 - Saturation
                             // 3 - Value
@@ -127,7 +127,7 @@ public class Controller_Station3 : MonoBehaviour
 
     void setDefaults()
     {
-        currentStep = 1;
+        currentStep = 0;
         colourWheelIndex = 0;
         flashAmplitude = 0.5f;
         flashOffset = 1f;
@@ -173,7 +173,7 @@ public class Controller_Station3 : MonoBehaviour
         StartUI.gameObject.SetActive(false);
 
         startButton.gameObject.SetActive(false);
-        prevButton.gameObject.SetActive(true);
+        prevButton.gameObject.SetActive(false);
         nextButton.gameObject.SetActive(true);
         headerText.text = "MONOCHROMATIC";
 

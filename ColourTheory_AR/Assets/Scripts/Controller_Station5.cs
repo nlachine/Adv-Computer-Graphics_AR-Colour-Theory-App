@@ -28,7 +28,7 @@ public class Controller_Station5 : MonoBehaviour
 
 
     //---- Variables ----//
-    int currentStep = 1;    // Indicates which step they are one
+    int currentStep = 0;    // Indicates which step they are one
                             // 1 - Hue
                             // 2 - Saturation
                             // 3 - Value
@@ -110,7 +110,7 @@ public class Controller_Station5 : MonoBehaviour
 
     void setDefaults()
     {
-        currentStep = 1;
+        currentStep = 0;
         flashAmplitude = 0.5f;
         flashOffset = 1f;
         flashSpeed = 5;
