@@ -10,7 +10,7 @@ public class Controller_Station5 : MonoBehaviour
     [Header("Utility Scripts")]
     //MaterialAnimations _materialAnimator;
     //ColourWheel _colourWheel;
-    HandleColour _handleColour;
+    HandleColour _handleColour = new HandleColour();
 
     //---- Colour Flashing Controls ----//
     [Header("Flashing Controls")]
@@ -44,7 +44,7 @@ public class Controller_Station5 : MonoBehaviour
     public Slider RedCyanSlider;
     public Slider GreenYellowSlider;
     public Slider BlueMagentaSlider;
-    public Slider GreySlider;
+    public Slider blackSlider;
     public Text hueDescription;
     public Text saturationDescription;
     public Text valueDescription;
@@ -126,7 +126,7 @@ public class Controller_Station5 : MonoBehaviour
         RedCyanSlider.gameObject.SetActive(false);
         GreenYellowSlider.gameObject.SetActive(false);
         BlueMagentaSlider.gameObject.SetActive(false);
-        GreySlider.gameObject.SetActive(false);
+        blackSlider.gameObject.SetActive(false);
 
         headerTextBackground.SetActive(false);
         textBackground.gameObject.SetActive(false);
@@ -154,13 +154,13 @@ public class Controller_Station5 : MonoBehaviour
     }
     float getGreyValue()
     {
-        return GreySlider.value;
+        return blackSlider.value;
     }
 
 
     public void RGBstep()
     {
-        HueChanged();
+        RGBChanged();
         StartUI.gameObject.SetActive(false);
 
         mixingMaterial.color = new Color(0, 0, 0);
@@ -171,9 +171,18 @@ public class Controller_Station5 : MonoBehaviour
         headerText.text = "ADDITIVE-RGB";
 
         RedCyanSlider.gameObject.SetActive(true);
+        RedCyanSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Red";
+        RedCyanSlider.transform.Find("TextRight").GetComponent<Text>().text = "0 - 1";
+
         GreenYellowSlider.gameObject.SetActive(true);
+        GreenYellowSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Green";
+        GreenYellowSlider.transform.Find("TextRight").GetComponent<Text>().text = "0 - 1";
+
         BlueMagentaSlider.gameObject.SetActive(true);
-        GreySlider.gameObject.SetActive(false);
+        BlueMagentaSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Blue";
+        BlueMagentaSlider.transform.Find("TextRight").GetComponent<Text>().text = "0 - 1";
+
+        blackSlider.gameObject.SetActive(false);
 
         headerTextBackground.SetActive(true);
         textBackground.gameObject.SetActive(true);
@@ -188,10 +197,10 @@ public class Controller_Station5 : MonoBehaviour
     }
     public void RYBstep()
     {
-        SaturationChanged();
+        RYBChanged();
         StartUI.gameObject.SetActive(false);
 
-        mixingMaterial.color = new Color(0, 0, 0);
+        mixingMaterial.color = _handleColour.RYBToRGB(0, 0, 0);
 
         startButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(true);
@@ -199,9 +208,18 @@ public class Controller_Station5 : MonoBehaviour
         headerText.text = "SUBTRACTIVE-RYB";
 
         RedCyanSlider.gameObject.SetActive(true);
+        RedCyanSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Red";
+        RedCyanSlider.transform.Find("TextRight").GetComponent<Text>().text = "0 - 1";
+
         GreenYellowSlider.gameObject.SetActive(true);
+        GreenYellowSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Yellow";
+        GreenYellowSlider.transform.Find("TextRight").GetComponent<Text>().text = "0 - 1";
+
         BlueMagentaSlider.gameObject.SetActive(true);
-        GreySlider.gameObject.SetActive(false);
+        BlueMagentaSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Blue";
+        BlueMagentaSlider.transform.Find("TextRight").GetComponent<Text>().text = "0 - 1";
+
+        blackSlider.gameObject.SetActive(false);
 
         headerTextBackground.SetActive(true);
         textBackground.gameObject.SetActive(true);
@@ -216,20 +234,33 @@ public class Controller_Station5 : MonoBehaviour
     }
     public void CMYKstep()
     {
-        ValueChanged();
+        CYMKChanged();
         StartUI.gameObject.SetActive(false);
 
-        mixingMaterial.color = new Color(0, 0, 0);
+        mixingMaterial.color = _handleColour.CMYKtoRBG(0, 0, 0, 0);
 
         startButton.gameObject.SetActive(false);
         prevButton.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(true);
-        headerText.text = "SUBTRACTIVE-CYMK";
+        headerText.text = "SUBTRACTIVE-CMYK";
 
-        RedCyanSlider.gameObject.SetActive(true);;
+        RedCyanSlider.gameObject.SetActive(true);
+        RedCyanSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Cyan";
+        RedCyanSlider.transform.Find("TextRight").GetComponent<Text>().text = "0 - 1";
+
+        //says yellow but is the magenta value
         GreenYellowSlider.gameObject.SetActive(true);
+        GreenYellowSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Magenta";//because it is CMYK not CYMK this is swapped
+        GreenYellowSlider.transform.Find("TextRight").GetComponent<Text>().text = "0 - 1";
+
+        //says magenta but is the yellow value
         BlueMagentaSlider.gameObject.SetActive(true);
-        GreySlider.gameObject.SetActive(true);
+        BlueMagentaSlider.transform.Find("TextLeft").GetComponent<Text>().text = "Yellow";//with this to make it consistent
+        BlueMagentaSlider.transform.Find("TextRight").GetComponent<Text>().text = "0 - 1";
+
+        blackSlider.gameObject.SetActive(true);
+        blackSlider.transform.Find("TextLeft").GetComponent<Text>().text = "K(black)";
+        blackSlider.transform.Find("TextRight").GetComponent<Text>().text = "0 - 1";
 
         headerTextBackground.SetActive(true);
         textBackground.gameObject.SetActive(true);
@@ -348,7 +379,7 @@ public class Controller_Station5 : MonoBehaviour
 
         BlueMagentaSlider.gameObject.SetActive(false);
 
-        GreySlider.gameObject.SetActive(false);
+        blackSlider.gameObject.SetActive(false);
 
         headerTextBackground.SetActive(false);
         textBackground.gameObject.SetActive(false);
@@ -362,75 +393,50 @@ public class Controller_Station5 : MonoBehaviour
         CompleteUI.gameObject.SetActive(true);
     }
 
-    void HueChanged()
+    void RGBChanged()
     {
-        //for (int i = 0; i < colourWheelRenderers.Count; i++)
-        //{
-        //    //colourWheelRenderers[i].material.color = Color.HSVToRGB(getUniversalValue(), 1.0f, 1.0f);
-        //}
+        Color _color = new Color(0,0,0);
+
+        _color.r = getRedCyanValue();
+        _color.g = getGreenYellowValue();
+        _color.b = getBlueMagentaValue();
+
+        mixingMaterial.color = _color;
     }
-    void SaturationChanged()
+    void RYBChanged()
     {
-        //for (int i = 0; i < colourWheelRenderers.Count; i++)
-        //{
-        //    //float H, S, V;
-        //    //Color.RGBToHSV(colourWheelMats[i].color, out H, out S, out V);
-        //    //colourWheelRenderers[i].material.color = Color.HSVToRGB(H, getUniversalValue(), V);
-        //}
+        float r = getRedCyanValue();
+        float y = getGreenYellowValue();
+        float b = getBlueMagentaValue();
+
+        Color _color = _handleColour.RYBToRGB(r, y, b);
+
+        mixingMaterial.color = _color;
     }
-    void ValueChanged()
+    void CYMKChanged()
     {
-        //for (int i = 0; i < colourWheelRenderers.Count; i++)
-        //{
-        //    //float H, S, V;
-        //    //Color.RGBToHSV(colourWheelMats[i].color, out H, out S, out V);
-        //    //colourWheelRenderers[i].material.color = Color.HSVToRGB(H, S, getUniversalValue());
-        //}
-    }
-    void TintChanged()
-    {
-        //for (int i = 0; i < colourWheelRenderers.Count; i++)
-        //{
-        //    //colourWheelRenderers[i].material.color = Color.Lerp(colourWheelMats[i].color, Color.white, getUniversalValue());
-        //}
-    }
-    void ToneChanged()
-    {
-        //for (int i = 0; i < colourWheelRenderers.Count; i++)
-        //{
-        //    //Color grey = new Color(getIntensityValue(), getIntensityValue(), getIntensityValue());
-        //    //colourWheelRenderers[i].material.color = Color.Lerp(colourWheelMats[i].color, grey, getUniversalValue());
-        //}
-    }
-    void ShadeChanged()
-    {
-        //for (int i = 0; i < colourWheelRenderers.Count; i++)
-        //{
-        //    //colourWheelRenderers[i].material.color = Color.Lerp(colourWheelMats[i].color, Color.black, getUniversalValue());
-        //}
+        float c = getRedCyanValue();
+        float y = getGreenYellowValue();
+        float m = getBlueMagentaValue();
+        float k = getGreyValue();
+
+        Color _color = _handleColour.CMYKtoRBG(c, y, m, k);
+
+        mixingMaterial.color = _color;
     }
 
     public void OnSliderChange()
     {
         switch (currentStep)
         {
-            case 1: //Hue Step
-                HueChanged();
+            case 1: //RGB Step
+                RGBChanged();
                 break;
-            case 2: //Saturation Step
-                SaturationChanged();
+            case 2: //RYB Step
+                RYBChanged();
                 break;
-            case 3: //Value Step
-                ValueChanged();
-                break;
-            case 4: //Tint Step
-                TintChanged();
-                break;
-            case 5: //Tone Step
-                ToneChanged();
-                break;
-            case 6: //Shade Step
-                ShadeChanged();
+            case 3: //CYMK Step
+                CYMKChanged();
                 break;
             default: //Otherwise
                 break;
